@@ -1,1 +1,2 @@
-export { default as Title } from "./title/Title";
+export { default as Title } from "./Title/Title";
+export { default as SearchBar } from "./SearchBar/SearchBar";

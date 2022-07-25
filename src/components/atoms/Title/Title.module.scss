@@ -1,6 +1,9 @@
 .Title {
-  font-size: 30px;
-  font-weight: extra-bold;
-  font-style: black;
+  font-style: Black;
+  font-size: calc(2rem - 2px);
   line-height: 42px;
+  text-align: Left;
+  vertical-align: Center;
+  font-weight: 900;
+  color: rgba(48, 57, 67, 1);
 }

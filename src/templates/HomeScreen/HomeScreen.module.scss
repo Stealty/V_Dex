@@ -1,8 +1,12 @@
 .HomeScreen {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
   background-image: url("/images/Subtract.png");
   background-repeat: no-repeat;
   background-size: 190px;
   background-position: right top;
+  width: 100%;
   height: 100vh;
   padding: 117px 26px 0px 26px;
 }
