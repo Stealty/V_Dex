@@ -1,9 +1,11 @@
-function App() {
+import { HomeScreen } from "@/templates";
+
+function Home() {
   return (
-    <div className="App">
-      <div>asd</div>
+    <div>
+      <HomeScreen />
     </div>
   );
 }
 
-export default App;
+export default Home;
