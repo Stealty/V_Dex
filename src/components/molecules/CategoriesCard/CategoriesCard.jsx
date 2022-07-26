@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styles from "./CategoriesCard.module.scss";
 
-export default function CategoriesCard({ color, title }) {
+export default function CategoriesCard({ color, title, route }) {
   return (
     <div
       className={
@@ -9,9 +10,13 @@ export default function CategoriesCard({ color, title }) {
           : styles.CategoriesCard
       }
     >
-      <button type="button" className={styles.CategoriesCard__button}>
+      <Link
+        type="button"
+        className={styles.CategoriesCard__link}
+        to={`/${route}`}
+      >
         {title}
-      </button>
+      </Link>
     </div>
   );
 }
