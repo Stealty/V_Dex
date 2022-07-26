@@ -1,10 +1,10 @@
-import { HomeScreen } from "@/templates";
+import { Link } from "react-router-dom";
 
-function Home() {
+function App() {
   return (
-    <>
-      <HomeScreen />
-    </>
+    <div className="App">
+      <Link to={"/pokedex"}>asd</Link>
+    </div>
   );
 }
 

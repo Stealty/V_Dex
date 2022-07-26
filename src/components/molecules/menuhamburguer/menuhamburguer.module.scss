@@ -1,4 +1,11 @@
 .Navigation{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-areas: 'bk space menu' ;
+
+    .BackArrow{
+       grid-area: 'bk';
+    }
+    
 }
+
