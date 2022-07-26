@@ -1,0 +1,27 @@
+.PokemonDetails {
+  height: 100vh;
+  background: #48d0b0;
+
+  &__backButton {
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    top: 60px;
+    left: 28px;
+    z-index: 1;
+  }
+
+  &__likeButton {
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    top: 60px;
+    right: 26px;
+  }
+
+  &__basics {
+    display: flex;
+    padding: 104px 26px 0 26px;
+    justify-content: space-between;
+  }
+}
