@@ -7,8 +7,14 @@ export default function HomeScreen() {
     <div className={styles.HomeScreen}>
       <Title title="What Pokemon are you looking for?" className="left16" />
       <SearchBar type="text" placeholder="Search Pokemon, Move, Ability etc" />
-      <CategoriesCard color="green" title="Pokedex" route="pokedex" />
-      <CategoriesCard color="red" title="Moves" route="moves" />
+      <div className={styles.HomeScreen__categories}>
+        <CategoriesCard color="green" title="Pokedex" route="pokedex" />
+        <CategoriesCard color="red" title="Moves" route="moves" />
+        <CategoriesCard color="blue" title="Abilities" route="abilities" />
+        <CategoriesCard color="yellow" title="Items" route="items" />
+        <CategoriesCard color="purple" title="Locations" route="locations" />
+        <CategoriesCard color="brown" title="Type Charts" route="types" />
+      </div>
     </div>
   );
 }
