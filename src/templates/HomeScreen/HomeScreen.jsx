@@ -1,6 +1,7 @@
 import styles from "./HomeScreen.module.scss";
 import { Title, SearchBar } from "@atoms";
 import { CategoriesCard } from "@molecules";
+import { useGetPokemonQuery } from "@api";
 
 export default function HomeScreen() {
   return (
