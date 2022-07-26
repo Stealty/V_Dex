@@ -1,0 +1,144 @@
+.Card{
+    width: 21em;
+    height: 15em;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: ". . . . id id"
+                         "name name name . . ."
+                         "type1 type1 . sprite sprite sprite"
+                         "type2 type2 . sprite sprite sprite"
+                         ". . . sprite sprite sprite";
+    text-transform: capitalize;
+    border-radius: 15px;
+    position: relative;
+
+    &__Name{
+        grid-area: name;
+        color: white;
+        font-size: 2rem;
+        margin: 0;
+        margin-left: 30px;
+    }
+
+    &__Id{
+        grid-area: id;
+        text-align: end;
+        font-size: 2rem;
+        opacity: 0.12;
+        top: 30px;
+        right: 30px;
+        position: absolute;
+        mix-blend-mode: multiply;
+    }
+
+    @mixin Type{
+        background-color: rgba(255, 255, 255, 0.4);
+        color: white;
+        border-radius: 38px;
+        align-self: center;
+        padding: 5%;
+        text-align: center;
+        margin-left: 30px;
+    }
+
+    &__Type1{
+        grid-area: type1;
+        @include Type;
+    }
+
+    &__Type2{
+        grid-area: type2;
+        @include Type;
+    }
+
+    &__Pokeball{
+        grid-area: sprite;
+        fill: rgba(255, 255, 255, 0.3);
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    &__Image{
+        grid-area: sprite;
+        height: 130%;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+    }
+
+    &.--water{
+        background: linear-gradient(8.46deg, #3569a4 -0.58%, #54a4ff 108.38%);
+    }
+
+    &.--grass{
+        background: linear-gradient(8.46deg, #46A487 -0.58%, #46D7AB 108.38%);
+    }
+
+    &.--fire{
+        background: linear-gradient(8.46deg, #ca5656 -0.58%, #FB6C6C 108.38%);
+    }
+
+    &.--normal{
+        background: linear-gradient(8.46deg, #bdbdbd -0.58%, #ffffff 108.38%);
+    }
+
+    &.--fighting{
+        background: linear-gradient(8.46deg, rgb(165, 71, 71) -0.58%, #fb846c 108.38%);
+    }
+
+    &.--flying{
+        background: linear-gradient(8.46deg, #33aab9 -0.58%, #45e9ff 108.38%);
+    }
+
+    &.--poison{
+        background: linear-gradient(8.46deg, #A040A0 -0.58%, #c850c8 108.38%);
+    }
+
+    &.--ground{
+        background: linear-gradient(8.46deg, #ad7c00 -0.58%, #eaa800 108.38%);
+    }
+
+    &.--rock{
+        background: linear-gradient(8.46deg, #763a0e -0.58%, #8f4b1b 108.38%);
+    }
+
+    &.--bug{
+        background: linear-gradient(8.46deg, #217d07 -0.58%, #2ba309 108.38%);
+    }
+
+    &.--ghost{
+        background: linear-gradient(8.46deg, #705898 -0.58%, #9172c4 108.38%);
+    }
+
+    &.--steel{
+        background: linear-gradient(8.46deg, #8d8da0 -0.58%, #B8B8D0 108.38%);
+    }
+
+    &.--electric{
+        background: linear-gradient(8.46deg, #c6a448 -0.58%, #FFDC7D 108.38%);
+    }
+
+    &.--psychic{
+        background: linear-gradient(8.46deg, #a03857 -0.58%, #F85888 108.38%);
+    }
+
+    &.--ice{
+        background: linear-gradient(8.46deg, #619898 -0.58%, #98D8D8 108.38%);
+    }
+
+    &.--dragon{
+        background: linear-gradient(8.46deg, #4b25a4 -0.58%, #7038F8 108.38%);
+    }
+
+    &.--dark{
+        background: linear-gradient(8.46deg, #705848 -0.58%, #8f705c 108.38%);
+    }
+
+    &.--fairy{
+        background: linear-gradient(8.46deg, #b57482 -0.58%, #EE99AC 108.38%);
+    }
+}
