@@ -9,7 +9,9 @@ function Home() {
   const [filteredPokemons, setFilteredPokemons] = useState([]);
   const dispatch = useDispatch();
   const pokemons = useSelector((state) => state.pokemon);
+
   console.log(data);
+
   useEffect(() => {
     if (data?.results) {
       dispatch(setPokemonSlice(data.results));
