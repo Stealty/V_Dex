@@ -1,23 +1,40 @@
 .Navigation{
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    width: 100vw;
     grid-template-areas: '. . . . . . . . . .'
                          '. bk . . . . . . menu .'
-                         '. title title title title . . . . .' ;
+                         '. . . . . . . . . .'
+                         '. . . . . . . . . .'
+                         '. title title title title . . . . .'
+                         '. . . . . . . . . .' ;
 
     &__BackArrow{
        grid-area: bk;
+       position: absolute;
+       top: 60px;
+       left: 60px;
     }
 
     &__Menu{
         grid-area: menu;
+        position: absolute;
+        right: 32px;
+        top: 32px;
     }
 
     &__Title{
         grid-area: title;
-        font-size: 5rem;
         margin: 0;
+    }
+
+    &__Pokeball{
+        grid-area: menu;
+        position: absolute;
+        top: 0;
+        right: 0;
+        fill: rgba(0, 0, 0, 0.05);
     }
     
 }
