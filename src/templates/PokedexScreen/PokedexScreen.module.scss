@@ -1,0 +1,17 @@
+.PokedexScreen {
+    width: 95vw;
+    height: 100vh;
+    padding: 0px 26px 0px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+
+    .PokemonList {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+}
