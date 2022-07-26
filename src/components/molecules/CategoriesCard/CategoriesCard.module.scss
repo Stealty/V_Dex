@@ -55,7 +55,7 @@
 
     background-repeat: no-repeat;
     background-position: right center;
-    background-size: cover;
+    background-size: contain;
     background-image: url("./images/SubtractCard.png");
     background-blend-mode: soft-light;
     filter: brightness(0) invert(1) opacity(0.8);
