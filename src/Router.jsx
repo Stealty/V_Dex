@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import App from "./pages/home";
 import Pokedex from "./pages/pokedex";
 import { HomeScreen } from "@templates";
 
