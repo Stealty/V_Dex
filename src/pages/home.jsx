@@ -1,7 +1,11 @@
 import { HomeScreen } from "@/templates";
 
 function Home() {
-  return <HomeScreen />;
+  return (
+    <main>
+      <HomeScreen />
+    </main>
+  );
 }
 
 export default Home;
