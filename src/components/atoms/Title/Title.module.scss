@@ -1,14 +1,16 @@
 .Title {
-  font-style: Black;
   font-size: 30px;
   line-height: 42px;
   text-align: Left;
   vertical-align: Center;
   font-weight: 900;
-  color: rgba(48, 57, 67, 1);
   margin: 0;
 
-  &--left16 {
-    margin-left: 16px;
+  &--dark-gray {
+    color: rgba(48, 57, 67, 1);
+  }
+
+  &--white {
+    color: rgba(255, 255, 255, 1);
   }
 }

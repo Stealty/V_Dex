@@ -19,11 +19,7 @@ function Home() {
     } else return;
   }, [isLoading]);
 
-  return (
-    <main>
-      <HomeScreen />
-    </main>
-  );
+  return <HomeScreen />;
 }
 
 export default Home;
