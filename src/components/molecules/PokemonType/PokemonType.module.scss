@@ -11,4 +11,8 @@
   max-width: 70px;
   height: 25px;
   font-size: 12px;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }

@@ -13,9 +13,11 @@ const Router = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (data?.results) {
-      dispatch(setPokemonSlice(data.results));
-    } else return;
+    try {
+      !isLoading && dispatch(setPokemonSlice(data.results));
+    } catch (error) {
+      console.log(error);
+    }
   }, [isLoading]);
 
   return (
