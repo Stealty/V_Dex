@@ -12,7 +12,7 @@ export default function HomeScreen() {
         aria-label="Categories"
       >
         <CategoriesCard color="green" title="Pokedex" route="pokedex" />
-        <CategoriesCard color="red" title="Moves" route="moves" />
+        <CategoriesCard color="red" title="Moves" route="pokedex/bulbasaur" />
         <CategoriesCard color="blue" title="Abilities" route="abilities" />
         <CategoriesCard color="yellow" title="Items" route="items" />
         <CategoriesCard color="purple" title="Locations" route="locations" />
