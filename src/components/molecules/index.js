@@ -4,3 +4,5 @@ export { default as MenuHamburguer } from "./menuhamburguer/menuhamburguer";
 export { default as Modal } from "./Modal/Modal";
 export { default as ModalObject } from "./ModalObject/ModalObject";
 export { default as PokemonCard } from "./PokemonCard/PokemonCard";
+export { default as DetailsBackground } from "./DetailsBackground/DetailsBackground";
+

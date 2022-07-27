@@ -20,9 +20,11 @@ const PokedexScreen = () => {
             <Modal Active={isActive}></Modal>
             <Filter onClick={onClickHandler} Active={isActive}></Filter>
         </div>
-    } else {
-        return <Title title="No Pokémon Found"></Title>
-    }
-}
+      </div>
+    );
+  } else {
+    return <Paragraph title="No Pokémon Found"></Paragraph>;
+  }
+};
 
 export default PokedexScreen;
