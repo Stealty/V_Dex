@@ -1,6 +1,6 @@
-import styles from "./Title.module.scss";
+import styles from "./Paragraph.module.scss";
 
-export default function Title({ title, color, size, weight }) {
+export default function Paragraph({ title, color, size, weight }) {
   return (
     <h1
       className={

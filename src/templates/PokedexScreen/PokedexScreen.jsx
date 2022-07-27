@@ -1,20 +1,24 @@
 import { PokemonCard } from "@molecules";
-import { Title } from "@atoms";
+import { Paragraph } from "@atoms";
 import styles from "./PokedexScreen.module.scss";
 import { useGetPokemonQuery } from "@api";
 
 const PokedexScreen = () => {
-    const { data, isLoading, error } = useGetPokemonQuery(30);
+  const { data, isLoading, error } = useGetPokemonQuery(30);
 
-    if (!isLoading) {
-        return <div className={styles.PokedexScreen}>
-            <div className={styles.PokemonList}>
-                {data.results.map((pokemon) => <PokemonCard key={pokemon.name} pokemon={pokemon}></PokemonCard>)}
-            </div>
+  if (!isLoading) {
+    return (
+      <div className={styles.PokedexScreen}>
+        <div className={styles.PokemonList}>
+          {data.results.map((pokemon) => (
+            <PokemonCard key={pokemon.name} pokemon={pokemon}></PokemonCard>
+          ))}
         </div>
-    } else {
-        return <Title title="No Pokémon Found"></Title>
-    }
-}
+      </div>
+    );
+  } else {
+    return <Paragraph title="No Pokémon Found"></Paragraph>;
+  }
+};
 
 export default PokedexScreen;
