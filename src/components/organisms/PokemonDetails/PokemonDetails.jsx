@@ -1,7 +1,6 @@
 import styles from "./PokemonDetails.module.scss";
 import { Link } from "react-router-dom";
-
-import { Paragraph, PokemonType } from "@atoms";
+import { Paragraph, PokemonType, PokemonImage } from "@atoms";
 import { DetailsBackground } from "@molecules";
 import { useGetPokemonDetailsQuery } from "@api";
 
@@ -65,6 +64,12 @@ export default function PokemonDetails({ url }) {
             color="white"
             size="14"
             weight="light"
+          />
+        </div>
+        <div className={styles.PokemonImage__wrapper}>
+          <PokemonImage
+            image={data?.sprites.other.dream_world.front_default}
+            name={data?.name}
           />
         </div>
       </section>
