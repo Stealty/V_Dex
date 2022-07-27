@@ -23,5 +23,22 @@
     display: flex;
     padding: 104px 26px 0 26px;
     justify-content: space-between;
+    flex-direction: column;
   }
+}
+
+.PokemonType__elements {
+  display: flex;
+  gap: 7px;
+}
+
+.PokemonType__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.PokemonDetails__title {
+  display: flex;
+  justify-content: space-between;
 }

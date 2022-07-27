@@ -1,7 +1,7 @@
 import styles from "./PokemonDetails.module.scss";
 import { Link } from "react-router-dom";
 
-import { Title } from "@atoms";
+import { Title, PokemonType } from "@atoms";
 import { DetailsBackground } from "@molecules";
 
 export default function PokemonDetails() {
@@ -39,14 +39,23 @@ export default function PokemonDetails() {
 
       <DetailsBackground />
 
-      {/* <section
+      <section
         aria-label="Basics about Pokemon"
         className={styles.PokemonDetails__basics}
       >
-        <Title title="Bulbasaur" color="white" />
-        <Title title="#001" color="white" />
+        <div className={styles.PokemonDetails__title}>
+          <Title title="Bulbasaur" color="white" size="36" weight="bold" />
+          <Title title="#001" color="white" size="18" weight="bold" />
+        </div>
+        <div className={styles.PokemonType__wrapper}>
+          <div className={styles.PokemonType__elements}>
+            <PokemonType type="Grass" />
+            <PokemonType type="Grass" />
+          </div>
+          <Title title="Seed Pokemon" color="white" size="14" weight="light" />
+        </div>
       </section>
-      <section aria-label="Details about Pokemon"></section> */}
+      {/* <section aria-label="Details about Pokemon"></section> */}
     </div>
   );
 }
