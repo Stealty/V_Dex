@@ -1,28 +1,25 @@
 import { PokemonCard, Modal, Filter } from "@molecules";
-import { Paragraph } from "@atoms";
+import { Paragraph, Backdrop } from "@atoms";
 import styles from "./PokedexScreen.module.scss";
-import { useGetPokemonQuery } from "@api";
+import { useSelector } from "react-redux";
 import { useState } from "react";
 
 const PokedexScreen = () => {
-    const { data, isLoading, error } = useGetPokemonQuery(30);
+    const pokemon = useSelector((state) => state.pokemon.pokemons.slice(0,40));
     const [isActive, setActive] = useState(false);
 
     const onClickHandler = () => {
         setActive(!isActive);
     }
-
-    if (!isLoading) {
         return <div className={styles.PokedexScreen}>
             <div className={styles.PokemonList}>
-                {data.results.map((pokemon) => <PokemonCard key={pokemon.name} pokemon={pokemon}></PokemonCard>)}
+                {pokemon.map((pokemon) => <PokemonCard key={pokemon.name} pokemon={pokemon}></PokemonCard>)}
             </div>
-            <Modal Active={isActive}></Modal>
+            <Backdrop>
+                <Modal Active={isActive} />
+            </Backdrop>
             <Filter onClick={onClickHandler} Active={isActive}></Filter>
         </div>
-    } else {
-        return <Paragraph title="No Pokémon Found"></Paragraph>;
-    }
 };
 
 export default PokedexScreen;
