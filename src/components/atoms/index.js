@@ -4,3 +4,4 @@ export { default as SearchBar } from "./SearchBar/SearchBar";
 export { default as Paragraph } from "./Paragraph/Paragraph";
 export { default as PokemonType } from "./PokemonType/PokemonType";
 export { default as PokemonImage } from "./PokemonImage/PokemonImage";
+export { default as LoadingAnimation } from "./LoadingAnimation/LoadingAnimation";
