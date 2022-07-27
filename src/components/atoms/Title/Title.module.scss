@@ -1,10 +1,17 @@
 .Title {
-  font-size: 30px;
   line-height: 42px;
   text-align: Left;
   vertical-align: Center;
   font-weight: 900;
   margin: 0;
+
+  &--bold {
+    font-weight: 900;
+  }
+
+  &--light {
+    font-weight: 300;
+  }
 
   &--dark-gray {
     color: rgba(48, 57, 67, 1);
@@ -12,5 +19,21 @@
 
   &--white {
     color: rgba(255, 255, 255, 1);
+  }
+
+  &--size14 {
+    font-size: 14px;
+  }
+
+  &--size18 {
+    font-size: 18px;
+  }
+
+  &--size30 {
+    font-size: 30px;
+  }
+
+  &--size36 {
+    font-size: 36px;
   }
 }

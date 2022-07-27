@@ -1,4 +1,9 @@
-.PokemonDetails__ornament {
+.DetailsBackground {
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.DetailsBackground__ornament {
   position: absolute;
   width: 143.92px;
   height: 143.92px;
@@ -15,7 +20,7 @@
   transform: rotate(75deg);
 }
 
-.PokemonDetails__dotted {
+.DetailsBackground__dotted {
   position: absolute;
   width: 57px;
   height: 31px;
@@ -24,7 +29,7 @@
   mix-blend-mode: normal;
 }
 
-.PokemonDetails__subtract {
+.DetailsBackground__subtract {
   position: absolute;
   width: 182.39px;
   height: 183px;
