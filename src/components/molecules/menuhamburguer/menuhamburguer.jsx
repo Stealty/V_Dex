@@ -7,17 +7,17 @@ const MenuHamburguer = () => {
     <nav className={styles.Navigation}>
       <BackArrow class={styles["Navigation__BackArrow"]} />
       <ul className={styles.Navigation__Menu}>
-        <li>
-          <span></span>
-          <span></span>
+        <li className={styles.Menu__Lista}>
+          <span className={styles.Menu__Ponto}></span>
+          <span className={styles.Menu__Bar}></span>
         </li>
-        <li>
-          <span></span>
-          <span></span>
+        <li className={styles.Menu__Lista}>
+          <span className={styles.Menu__Ponto}></span>
+          <span className={styles.Menu__Bar}></span>
         </li>
-        <li>
-          <span></span>
-          <span></span>
+        <li className={styles.Menu__Lista}>
+          <span className={styles.Menu__Ponto}></span>
+          <span className={styles.Menu__Bar}></span>
         </li>
       </ul>
       <svg

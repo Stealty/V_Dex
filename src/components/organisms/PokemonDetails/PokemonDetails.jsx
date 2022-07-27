@@ -7,7 +7,7 @@ import { setPokemonDetailsSlice } from "../../../store/modules/pokemonSlice";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-export default function PokemonDetails({ url }) {
+export default function PokemonDetails(url) {
   const { data, isLoading, error } = useGetPokemonDetailsQuery(url);
   const dispatch = useDispatch();
 

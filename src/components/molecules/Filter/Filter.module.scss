@@ -1,0 +1,37 @@
+.Filter {
+    background-color: #6C79DB;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    box-shadow: 0px 11px 35px rgba(44, 52, 114, 0.5);
+    border-radius: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 50px;
+    right: 50px;
+
+    &.--active {
+        display: flex;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.Filter__Svg {
+    fill: white;
+    &.--active{
+
+    }
+}
+
+
+@media(min-width:1024px) {
+    .Filter {
+        transform: scale(2);
+        bottom: 100px;
+        right: 100px;
+    }
+}
