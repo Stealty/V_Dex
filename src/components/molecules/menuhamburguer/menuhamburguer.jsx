@@ -31,7 +31,6 @@ const MenuHamburguer = () => {
         className={styles["Navigation__Title"]}
       ></Paragraph>
     </nav>
-  );
-};
+}
 
 export default MenuHamburguer;

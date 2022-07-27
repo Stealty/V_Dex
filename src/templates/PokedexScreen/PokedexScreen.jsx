@@ -1,4 +1,4 @@
-import { PokemonCard } from "@molecules";
+import { PokemonCard, Modal, Filter } from "@molecules";
 import { Paragraph } from "@atoms";
 import styles from "./PokedexScreen.module.scss";
 import { useGetPokemonQuery } from "@api";
