@@ -1,5 +1,5 @@
-import { PokemonCard, Modal, Filter } from "@molecules";
-import { Title } from "@atoms";
+import { PokemonCard } from "@molecules";
+import { Paragraph } from "@atoms";
 import styles from "./PokedexScreen.module.scss";
 import { useGetPokemonQuery } from "@api";
 import { useState } from "react";
@@ -21,8 +21,8 @@ const PokedexScreen = () => {
             <Filter onClick={onClickHandler} Active={isActive}></Filter>
         </div>
     } else {
-        return <Title title="No Pokémon Found"></Title>
+        return <Paragraph title="No Pokémon Found"></Paragraph>;
     }
-}
+};
 
 export default PokedexScreen;

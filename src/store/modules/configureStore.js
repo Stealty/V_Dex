@@ -16,4 +16,6 @@ export const store = configureStore({
 
 setupListeners(store.dispatch);
 
-// store.subscribe(() => console.log(store.getState()));
+// store.subscribe(() => {
+//   console.log(store.getState().pokemon.pokemons);
+// });
