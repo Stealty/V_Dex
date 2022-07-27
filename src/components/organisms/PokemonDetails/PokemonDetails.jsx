@@ -3,9 +3,21 @@ import { Link } from "react-router-dom";
 import { Paragraph, PokemonImage } from "@atoms";
 import { DetailsBackground, PokemonType } from "@molecules";
 import { useGetPokemonDetailsQuery } from "@api";
+import { setPokemonDetailsSlice } from "../../../store/modules/pokemonSlice";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 export default function PokemonDetails({ url }) {
   const { data, isLoading, error } = useGetPokemonDetailsQuery(url);
+  const dispatch = useDispatch();
+
+  const id = data?.id.toString().padStart(3, "0");
+
+  useEffect(() => {
+    if (data?.results) {
+      dispatch(setPokemonDetailsSlice(data.results));
+    } else return;
+  }, [isLoading]);
 
   return (
     <div className={styles.PokemonDetails}>
@@ -57,7 +69,7 @@ export default function PokemonDetails({ url }) {
                 weight="bold"
               />
               <Paragraph
-                title={"#" + data?.id}
+                title={"#" + id}
                 color="white"
                 size="18"
                 weight="bold"

@@ -11,7 +11,10 @@ export const store = configureStore({
   },
 
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(pokemonApi.middleware),
+    getDefaultMiddleware().concat(
+      pokemonApi.middleware,
+      pokemonDetailsApi.middleware
+    ),
 });
 
 setupListeners(store.dispatch);
