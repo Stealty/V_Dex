@@ -1,0 +1,22 @@
+.Modal{
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    position: fixed;
+    height: 200px;
+    bottom: 100px;
+    right: 50px;
+
+    &.--active{
+        display: flex;
+    }
+}
+
+@media(min-width:1024px){
+    .Modal{
+        bottom: 50%;
+        right: 50%;
+        transform: scale(1.5);
+    }
+}

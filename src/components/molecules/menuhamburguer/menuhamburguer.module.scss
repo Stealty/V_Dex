@@ -13,7 +13,7 @@
     &__BackArrow{
        grid-area: bk;
        position: absolute;
-       top: 60px;
+       top: 45px;
        left: 60px;
     }
 
@@ -21,7 +21,8 @@
         grid-area: menu;
         position: absolute;
         right: 32px;
-        top: 32px;
+        top: 58px;
+        list-style: none;
     }
 
     &__Title{
@@ -36,6 +37,27 @@
         right: 0;
         fill: rgba(0, 0, 0, 0.05);
     }
-    
+}
+
+.Menu{
+    &__Ponto{
+        width: 5px;
+        height: 5px;
+        background-color: black;
+        margin-bottom: 3px;
+        margin-right: 2px;
+        border-radius: 1px;
+    }
+
+    &__Bar{
+        width: 14px;
+        height: 5px;
+        background: black;
+        border-radius: 1px;
+    }
+
+    &__Lista{
+        display: flex;
+    }
 }
 
