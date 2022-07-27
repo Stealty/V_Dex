@@ -1,19 +1,16 @@
 import styles from "./PokemonCard.module.scss";
 import { useGetPokemonDetailsQuery } from "@api";
 import { Paragraph } from "@atoms";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const PokemonCard = (pokemon) => {
   const { data, isLoading, error } = useGetPokemonDetailsQuery(
     pokemon.pokemon.url
   );
-  const [Color, setColor] = useState("");
 
   if (!isLoading) {
     return (
-      <div
-        className={`${styles.Card} ${styles[`--${data.types[0].type.name}`]}`}
-      >
+      <Link to={data.name} className={`${styles.Card} ${styles[`--${data.types[0].type.name}`]}`}>
         <h1 className={styles.Card__Name}>{data.name}</h1>
         <p className={styles.Card__Type1}>{data.types[0].type.name}</p>
         {data.types[1] != null && (
@@ -37,7 +34,7 @@ const PokemonCard = (pokemon) => {
           src={data.sprites.front_default}
           alt={data.name}
         />
-      </div>
+    </Link>
     );
   } else {
     return <Paragraph title="No Pokémon Found"></Paragraph>;

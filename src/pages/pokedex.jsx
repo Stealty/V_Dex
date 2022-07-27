@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useGetPokemonQuery } from "@api";
 
 function Pokedex() {
-  const { data, isLoading, error } = useGetPokemonQuery(151);
+  const { data, isLoading, error } = useGetPokemonQuery(40);
   const [filteredPokemons, setFilteredPokemons] = useState([]);
   const dispatch = useDispatch();
   const pokemons = useSelector((state) => state.pokemon);
