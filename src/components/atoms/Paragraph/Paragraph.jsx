@@ -4,13 +4,13 @@ export default function Paragraph({ title, color, size, weight }) {
   return (
     <h1
       className={
-        styles.Title +
+        styles.Paragraph +
         " " +
-        styles[`Title--${color}`] +
+        styles[`Paragraph--${color}`] +
         " " +
-        styles[`Title--size${size}`] +
+        styles[`Paragraph--size${size}`] +
         " " +
-        styles[`Title--${weight}`]
+        styles[`Paragraph--${weight}`]
       }
     >
       {title}

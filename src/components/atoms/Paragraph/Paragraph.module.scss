@@ -1,9 +1,13 @@
-.Title {
+.Paragraph {
   line-height: 42px;
   text-align: Left;
   vertical-align: Center;
   font-weight: 900;
   margin: 0;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 
   &--bold {
     font-weight: 900;

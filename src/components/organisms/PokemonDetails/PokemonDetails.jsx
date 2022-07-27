@@ -1,12 +1,12 @@
 import styles from "./PokemonDetails.module.scss";
 import { Link } from "react-router-dom";
-import { Paragraph, PokemonType, PokemonImage } from "@atoms";
-import { DetailsBackground } from "@molecules";
+import { Paragraph, PokemonImage } from "@atoms";
+import { DetailsBackground, PokemonType } from "@molecules";
 import { useGetPokemonDetailsQuery } from "@api";
 
 export default function PokemonDetails({ url }) {
   const { data, isLoading, error } = useGetPokemonDetailsQuery(url);
-  console.log(data);
+
   return (
     <div className={styles.PokemonDetails}>
       <Link className={styles.PokemonDetails__backButton} to={"/home"}>
@@ -45,27 +45,39 @@ export default function PokemonDetails({ url }) {
         aria-label="Basics about Pokemon"
         className={styles.PokemonDetails__basics}
       >
-        <div className={styles.PokemonDetails__title}>
-          <Paragraph title={data?.name} color="white" size="36" weight="bold" />
-          <Paragraph
-            title={"#" + data?.id}
-            color="white"
-            size="18"
-            weight="bold"
-          />
-        </div>
-        <div className={styles.PokemonType__wrapper}>
-          <div className={styles.PokemonType__elements}>
-            <PokemonType type={data?.types[0].type.name} />
-            <PokemonType type={data?.types[1].type.name} />
-          </div>
-          <Paragraph
-            title="Seed Pokemon"
-            color="white"
-            size="14"
-            weight="light"
-          />
-        </div>
+        {isLoading ? (
+          <Paragraph title="Loading..." color="white" weight="bold" size="36" />
+        ) : (
+          <>
+            <div className={styles.PokemonDetails__title}>
+              <Paragraph
+                title={data?.name}
+                color="white"
+                size="36"
+                weight="bold"
+              />
+              <Paragraph
+                title={"#" + data?.id}
+                color="white"
+                size="18"
+                weight="bold"
+              />
+            </div>
+            <div className={styles.PokemonType__wrapper}>
+              <div className={styles.PokemonType__elements}>
+                <PokemonType type={data?.types[0].type.name} />
+                <PokemonType type={data?.types[1].type.name} />
+              </div>
+              <Paragraph
+                title="Seed Pokemon"
+                color="white"
+                size="14"
+                weight="light"
+              />
+            </div>
+          </>
+        )}
+
         <div className={styles.PokemonImage__wrapper}>
           <PokemonImage
             image={data?.sprites.other.dream_world.front_default}
