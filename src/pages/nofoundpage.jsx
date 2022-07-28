@@ -1,10 +1,7 @@
-import { Paragraph } from "@atoms";
+import { NoFoundScreen } from "@templates";
 
 const NoFoundPage = () => {
-    return <>
-    <Paragraph title="Missing No" />
-    <img src="images\Missingno.png" alt="MissingNo"/>
-    </>
+    return <NoFoundScreen />
 }
 
 export default NoFoundPage;

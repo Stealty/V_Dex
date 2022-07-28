@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { PokedexScreen } from "@templates";
-import { MenuHamburguer } from "@molecules";
 import { setPokemonSlice } from "@store/modules/pokemonSlice";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,11 +16,10 @@ function Pokedex() {
       setFilteredPokemons(data.results);
     } else return;
   }, [isLoading]);
-  
-    return <>
-    <MenuHamburguer></MenuHamburguer>
+
+  return <>
     <PokedexScreen />
-    </>
+  </>
 }
 
 export default Pokedex;

@@ -1,6 +1,16 @@
 .Backdrop{
     width: 100vw;
     height: 100vh;
-    background: rgb(0, 0, 0);
-    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    &.--active{
+        opacity: 1;
+        display: block;
+    }
 }

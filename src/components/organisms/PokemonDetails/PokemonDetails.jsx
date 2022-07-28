@@ -7,7 +7,7 @@ import { setPokemonDetailsSlice } from "../../../store/modules/pokemonSlice";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-export default function PokemonDetails(url) {
+export default function PokemonDetails({url}) {
   const { data, isLoading, error } = useGetPokemonDetailsQuery(url);
   const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ export default function PokemonDetails(url) {
 
   return (
     <div className={styles.PokemonDetails}>
-      <Link className={styles.PokemonDetails__backButton} to={"/home"}>
+      <Link className={styles.PokemonDetails__backButton} to={"/pokedex"}>
         <svg
           width="22"
           height="14"

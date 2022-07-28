@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 
 const PokemonCard = (pokemon) => {
   const { data, isLoading, error } = useGetPokemonDetailsQuery(
-    pokemon.pokemon.url
+    pokemon.pokemon.name
   );
-
   if (!isLoading) {
     return (
       <Link to={data.name} className={`${styles.Card} ${styles[`--${data.types[0].type.name}`]}`}>
