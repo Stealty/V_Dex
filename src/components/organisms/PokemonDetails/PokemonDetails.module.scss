@@ -11,19 +11,16 @@
     z-index: 1;
   }
 
-  &__likeButton {
-    background-color: transparent;
-    border: 0;
-    position: absolute;
-    top: 60px;
-    right: 26px;
-  }
-
   &__basics {
     display: flex;
     padding: 104px 26px 0 26px;
     justify-content: space-between;
     flex-direction: column;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -38,15 +35,16 @@
   align-items: center;
 }
 
-.PokemonDetails__title {
-  display: flex;
-  justify-content: space-between;
-}
-
 .PokemonImage__wrapper {
   margin-top: 20px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.LikeHeart__wrapper {
+  position: absolute;
+  top: 60px;
+  right: 26px;
 }
