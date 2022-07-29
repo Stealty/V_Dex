@@ -14,11 +14,11 @@ export const pokemonApi = createApi({
 
 export const pokemonDetailsApi = createApi({
   reducerPath: "pokemonDetailsApi",
-  baseQuery: fetchBaseQuery({ baseUrl: undefined }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://pokeapi.co/api/v2/pokemon/" }),
   keepUnusedDataFor: 86400,
   endpoints: (builder) => ({
     getPokemonDetails: builder.query({
-      query: (url) => url,
+      query: (name) => name,
     }),
   }),
 });
