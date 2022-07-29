@@ -5,7 +5,7 @@ import { useGetPokemonDetailsQuery } from "@api";
 import { setPokemonDetailsSlice } from "@store/modules/pokemonSlice";
 
 export default function Pokemon() {
-  const name = location.pathname.split("/")[2];
+  const name = location.pathname.split("/")[2].toLocaleLowerCase();
   const { data, isLoading, error } = useGetPokemonDetailsQuery(name);
   const dispatch = useDispatch();
 
@@ -21,9 +21,8 @@ export default function Pokemon() {
     <PokemonDetails
       details={data}
       isLoading={isLoading}
-      error={error}
+      failed={error}
       name={name}
-      description={"asd"}
     />
   );
 }
