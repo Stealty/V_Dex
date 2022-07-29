@@ -30,6 +30,8 @@ export default function PokemonDetails({ details, loading, name, failed }) {
     }
   });
 
+  console.log(details?.sprites.other);
+
   return (
     <div
       className={
@@ -89,7 +91,7 @@ export default function PokemonDetails({ details, loading, name, failed }) {
 
         <div className={styles.PokemonImage__wrapper}>
           <PokemonImage
-            image={details?.sprites.other.dream_world.front_default}
+            image={details?.sprites.other["official-artwork"].front_default}
             name={details?.name}
           />
         </div>
