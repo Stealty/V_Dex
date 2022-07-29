@@ -1,9 +1,28 @@
 import { PokemonDetails } from "@organisms";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useGetPokemonDetailsQuery } from "@api";
+import { setPokemonDetailsSlice } from "@store/modules/pokemonSlice";
 
 export default function Pokemon() {
-  const pokemon = useSelector((state) => state.pokemon.pokemons[0]);
-  const evolutionChain = useSelector((state) => state.pokemon.evolutionChain);
+  const name = location.pathname.split("/")[2].toLocaleLowerCase();
+  const { data, isLoading, error } = useGetPokemonDetailsQuery(name);
+  const dispatch = useDispatch();
 
-  return <PokemonDetails url={pokemon?.name} />;
+  useEffect(() => {
+    try {
+      !isLoading && dispatch(setPokemonDetailsSlice(data));
+    } catch (error) {
+      console.log(error);
+    }
+  }, [isLoading]);
+
+  return (
+    <PokemonDetails
+      details={data}
+      isLoading={isLoading}
+      failed={error}
+      name={name}
+    />
+  );
 }

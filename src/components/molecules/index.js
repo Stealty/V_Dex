@@ -6,4 +6,6 @@ export { default as PokemonType } from "./PokemonType/PokemonType";
 export { default as Modal } from "./Modal/Modal";
 export { default as ModalObject } from "./ModalObject/ModalObject";
 export { default as PokemonCard } from "./PokemonCard/PokemonCard";
-
+export { default as AboutTab } from "./AboutTab/AboutTab";
+export { default as LikeHeart } from "./LikeHeart/LikeHeart";
+export { default as PokemonSize } from "./PokemonSize/PokemonSize";

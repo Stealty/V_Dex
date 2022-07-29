@@ -17,9 +17,18 @@ function Pokedex() {
     } else return;
   }, [isLoading]);
 
+<<<<<<< HEAD
   return <>
     <PokedexScreen />
   </>
+=======
+  return (
+    <>
+      <MenuHamburguer></MenuHamburguer>
+      <PokedexScreen />
+    </>
+  );
+>>>>>>> development
 }
 
 export default Pokedex;

@@ -1,6 +1,5 @@
 .PokemonDetails {
   height: 100vh;
-  background: #48d0b0;
 
   &__backButton {
     background-color: transparent;
@@ -12,19 +11,71 @@
     z-index: 1;
   }
 
-  &__likeButton {
-    background-color: transparent;
-    border: 0;
-    position: absolute;
-    top: 60px;
-    right: 26px;
-  }
-
   &__basics {
     display: flex;
     padding: 104px 26px 0 26px;
     justify-content: space-between;
     flex-direction: column;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &--normal {
+    background: #aaa67f;
+  }
+  &--fighting {
+    background: #c12239;
+  }
+  &--flying {
+    background: #a890f0;
+  }
+  &--poison {
+    background: #a040a0;
+  }
+  &--ground {
+    background: #e0c068;
+  }
+  &--rock {
+    background: #b8a038;
+  }
+  &--bug {
+    background: #a8b820;
+  }
+  &--ghost {
+    background: #705898;
+  }
+  &--steel {
+    background: #b8b8d0;
+  }
+  &--fire {
+    background: #fb6c6c;
+  }
+  &--water {
+    background: #7ac7ff;
+  }
+  &--grass {
+    background: #48d0b0;
+  }
+  &--electric {
+    background: #ffce4b;
+  }
+  &--psychic {
+    background: #f85888;
+  }
+  &--ice {
+    background: #98d8d8;
+  }
+  &--dragon {
+    background: #7038f8;
+  }
+  &--dark {
+    background: #705848;
+  }
+  &--fairy {
+    background: #ee99ac;
   }
 }
 
@@ -39,15 +90,16 @@
   align-items: center;
 }
 
-.PokemonDetails__title {
-  display: flex;
-  justify-content: space-between;
-}
-
 .PokemonImage__wrapper {
   margin-top: 20px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.LikeHeart__wrapper {
+  position: absolute;
+  top: 60px;
+  right: 26px;
 }
