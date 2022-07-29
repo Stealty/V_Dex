@@ -1,4 +1,4 @@
-import { PokemonDetails } from "@organisms";
+import { PokemonDetails} from "@organisms";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useGetPokemonDetailsQuery } from "@api";

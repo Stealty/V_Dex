@@ -1,7 +1,7 @@
 import LoadingAnimation from "../LoadingAnimation/LoadingAnimation";
 import styles from "./PokemonImage.module.scss";
 
-export default function PokemonImage({ isEvolution, image, evolution, name }) {
+export default function PokemonImage({ className, isEvolution, image, evolution, name }) {
   if (!image) {
     return (
       <div className={styles.PokemonImage}>

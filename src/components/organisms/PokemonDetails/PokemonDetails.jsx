@@ -1,17 +1,17 @@
 import styles from "./PokemonDetails.module.scss";
 import { Link } from "react-router-dom";
-import { Paragraph, PokemonImage } from "@atoms";
+import { Paragraph, PokemonImage, BackArrow } from "@atoms";
 import {
   DetailsBackground,
   PokemonType,
   LikeHeart,
   AboutTab,
+  EvolutionList
 } from "@molecules";
 import { useGetPokemonSpeciesQuery } from "@api";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPokemonSpeciesSlice } from "@store/modules/pokemonSlice";
-import Back from "../../atoms/back/back";
 
 export default function PokemonDetails({ details, loading, name, failed }) {
   const { data, isLoading, error } = useGetPokemonSpeciesQuery(name);
@@ -39,7 +39,7 @@ export default function PokemonDetails({ details, loading, name, failed }) {
       }
     >
       <Link className={styles.PokemonDetails__backButton} to={-1}>
-        <Back fill="white" />
+        <BackArrow fill="white" />
       </Link>
 
       <div className={styles.LikeHeart__wrapper}>
@@ -96,6 +96,9 @@ export default function PokemonDetails({ details, loading, name, failed }) {
       </section>
       <section aria-label="Details about Pokemon">
         <AboutTab data={details} description={description} />
+      </section>
+      <section aria-label="Pokémon Evolutions">
+        {!isLoading && <EvolutionList species={data} details={details} />}
       </section>
     </div>
   );

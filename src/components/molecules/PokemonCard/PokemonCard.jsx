@@ -1,12 +1,19 @@
 import styles from "./PokemonCard.module.scss";
 import { useGetPokemonDetailsQuery } from "@api";
-import { Paragraph } from "@atoms";
+import { LoadingAnimation } from "@atoms";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const PokemonCard = (pokemon) => {
   const { data, isLoading, error } = useGetPokemonDetailsQuery(
     pokemon.pokemon.name
   );
+
+  useEffect(()=>{
+
+  })
+
+  
   if (!isLoading) {
     return (
       <Link to={data.name} className={`${styles.Card} ${styles[`--${data.types[0].type.name}`]}`}>
@@ -36,7 +43,7 @@ const PokemonCard = (pokemon) => {
     </Link>
     );
   } else {
-    return <Paragraph title="No Pokémon Found"></Paragraph>;
+    return <LoadingAnimation />;
   }
 };
 

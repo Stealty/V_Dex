@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import { pokemonApi, pokemonDetailsApi, pokemonSpeciesApi } from "@api";
+import { pokemonApi, pokemonDetailsApi, pokemonSpeciesApi, pokemonEvolutionApi } from "@api";
 import pokemonSliceReducer from "@store/modules/pokemonSlice";
 
 export const store = configureStore({
@@ -8,6 +8,7 @@ export const store = configureStore({
     [pokemonApi.reducerPath]: pokemonApi.reducer,
     [pokemonDetailsApi.reducerPath]: pokemonDetailsApi.reducer,
     [pokemonSpeciesApi.reducerPath]: pokemonSpeciesApi.reducer,
+    [pokemonEvolutionApi.reducerPath]: pokemonEvolutionApi.reducer,
     pokemon: pokemonSliceReducer,
   },
 
@@ -15,7 +16,8 @@ export const store = configureStore({
     getDefaultMiddleware().concat(
       pokemonApi.middleware,
       pokemonDetailsApi.middleware,
-      pokemonSpeciesApi.middleware
+      pokemonSpeciesApi.middleware,
+      pokemonEvolutionApi.middleware
     ),
 });
 
