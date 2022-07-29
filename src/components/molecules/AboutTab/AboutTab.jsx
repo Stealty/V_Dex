@@ -2,7 +2,7 @@ import styles from "./AboutTab.module.scss";
 import { Paragraph } from "@atoms";
 import { PokemonSize } from "@molecules";
 
-export default function AboutTab({ data }) {
+export default function AboutTab({ data, description }) {
   return (
     <div className={styles.AboutTab}>
       <Paragraph
@@ -10,7 +10,7 @@ export default function AboutTab({ data }) {
         weight="light"
         height="24"
         color="dark-gray"
-        title="Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger. "
+        title={description}
       />
       <div className={styles.AboutTab__sie}>
         <PokemonSize data={data} />

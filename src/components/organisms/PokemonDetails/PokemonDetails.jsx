@@ -7,9 +7,28 @@ import {
   LikeHeart,
   AboutTab,
 } from "@molecules";
+import { useGetPokemonSpeciesQuery } from "@api";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setPokemonSpeciesSlice } from "@store/modules/pokemonSlice";
 
-export default function PokemonDetails({ data, isLoading, error }) {
-  const id = data?.id.toString().padStart(3, "0");
+export default function PokemonDetails({ details, loading, name }) {
+  const { data, isLoading, error } = useGetPokemonSpeciesQuery(name);
+  const pokemonSpecies = useSelector((state) => state.pokemon.pokemonSpecies);
+  const id = details?.id.toString().padStart(3, "0");
+  const dispatch = useDispatch();
+  const description = data?.flavor_text_entries[6].flavor_text
+    .toLowerCase()
+    .replace(/[^a-zA-Z0-9 ]/g, "");
+
+  useEffect(() => {
+    try {
+      !isLoading && dispatch(setPokemonSpeciesSlice(data));
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
   return (
     <div className={styles.PokemonDetails}>
       <Link className={styles.PokemonDetails__backButton} to={-1}>
@@ -37,13 +56,13 @@ export default function PokemonDetails({ data, isLoading, error }) {
         aria-label="Basics about Pokemon"
         className={styles.PokemonDetails__basics}
       >
-        {isLoading ? (
+        {loading ? (
           <Paragraph title="Loading..." color="white" weight="bold" size="36" />
         ) : (
           <>
             <div className={styles.PokemonDetails__title}>
               <Paragraph
-                title={data?.name}
+                title={details?.name}
                 color="white"
                 size="36"
                 weight="bold"
@@ -57,9 +76,9 @@ export default function PokemonDetails({ data, isLoading, error }) {
             </div>
             <div className={styles.PokemonType__wrapper}>
               <div className={styles.PokemonType__elements}>
-                <PokemonType type={data?.types[0].type.name} />
-                {data?.types[1] && (
-                  <PokemonType type={data?.types[1].type.name} />
+                <PokemonType type={details?.types[0].type.name} />
+                {details?.types[1] && (
+                  <PokemonType type={details?.types[1].type.name} />
                 )}
               </div>
               <Paragraph
@@ -74,13 +93,13 @@ export default function PokemonDetails({ data, isLoading, error }) {
 
         <div className={styles.PokemonImage__wrapper}>
           <PokemonImage
-            image={data?.sprites.other.dream_world.front_default}
-            name={data?.name}
+            image={details?.sprites.other.dream_world.front_default}
+            name={details?.name}
           />
         </div>
       </section>
       <section aria-label="Details about Pokemon">
-        <AboutTab data={data} />
+        <AboutTab data={details} description={description} />
       </section>
     </div>
   );
