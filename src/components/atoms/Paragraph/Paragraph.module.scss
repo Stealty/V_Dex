@@ -4,9 +4,14 @@
   vertical-align: Center;
   font-weight: 900;
   margin: 0;
+  font-style: book;
 
   &::first-letter {
     text-transform: uppercase;
+  }
+
+  &--opacity04 {
+    opacity: 0.4;
   }
 
   &--bold {
@@ -18,7 +23,7 @@
   }
 
   &--dark-gray {
-    color: rgba(48, 57, 67, 1);
+    color: #303943;
   }
 
   &--white {
@@ -39,5 +44,17 @@
 
   &--size36 {
     font-size: 36px;
+  }
+
+  &--height14 {
+    line-height: 14px;
+  }
+
+  &--height28 {
+    line-height: 28px;
+  }
+
+  &--height24 {
+    line-height: 24px;
   }
 }

@@ -27,7 +27,6 @@ const Router = () => {
       <Route path="/home" element={<Home />} />
       <Route path="/pokedex" element={<Pokedex />} />
       <Route path="pokedex/:Pokeid" element={<Pokemon />} />
-      <Route path="pokedex/bulbasaur" element={<Pokemon />} />
       <Route path="*" element={<NoFoundPage />} />
     </Routes>
   );
