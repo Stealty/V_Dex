@@ -3,7 +3,6 @@ import { Paragraph } from "@atoms";
 import { PokemonSize } from "@molecules";
 
 export default function AboutTab({ data }) {
-  console.log(data);
   return (
     <div className={styles.AboutTab}>
       <Paragraph

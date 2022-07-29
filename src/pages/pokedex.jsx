@@ -17,11 +17,13 @@ function Pokedex() {
       setFilteredPokemons(data.results);
     } else return;
   }, [isLoading]);
-  
-    return <>
-    <MenuHamburguer></MenuHamburguer>
-    <PokedexScreen />
+
+  return (
+    <>
+      <MenuHamburguer></MenuHamburguer>
+      <PokedexScreen />
     </>
+  );
 }
 
 export default Pokedex;

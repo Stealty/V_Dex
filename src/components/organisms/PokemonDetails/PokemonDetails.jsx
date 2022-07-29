@@ -7,23 +7,9 @@ import {
   LikeHeart,
   AboutTab,
 } from "@molecules";
-import { useGetPokemonDetailsQuery } from "@api";
-import { setPokemonDetailsSlice } from "../../../store/modules/pokemonSlice";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 
-export default function PokemonDetails(url) {
-  const { data, isLoading, error } = useGetPokemonDetailsQuery(url);
-  const dispatch = useDispatch();
-
+export default function PokemonDetails({ data, isLoading, error }) {
   const id = data?.id.toString().padStart(3, "0");
-
-  useEffect(() => {
-    if (data?.results) {
-      dispatch(setPokemonDetailsSlice(data.results));
-    } else return;
-  }, [isLoading]);
-
   return (
     <div className={styles.PokemonDetails}>
       <Link className={styles.PokemonDetails__backButton} to={-1}>
@@ -72,7 +58,9 @@ export default function PokemonDetails(url) {
             <div className={styles.PokemonType__wrapper}>
               <div className={styles.PokemonType__elements}>
                 <PokemonType type={data?.types[0].type.name} />
-                <PokemonType type={data?.types[1].type.name} />
+                {data?.types[1] && (
+                  <PokemonType type={data?.types[1].type.name} />
+                )}
               </div>
               <Paragraph
                 title="Seed Pokemon"
