@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const pokemonSlice = createSlice({
   name: "pokemon",
   initialState: {
-    pokemons: [],
     pokemon: {},
+    pokemons: [],
     pokemonSpecies: {},
   },
   reducers: {
