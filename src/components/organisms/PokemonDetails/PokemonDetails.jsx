@@ -19,7 +19,7 @@ export default function PokemonDetails({ details, loading, name }) {
   const dispatch = useDispatch();
   const description = data?.flavor_text_entries[6].flavor_text
     .toLowerCase()
-    .replace(/[^a-zA-Z0-9 ]/g, "");
+    .replace(/[^a-zA-Z0-9 ]/g, " ");
 
   useEffect(() => {
     try {
