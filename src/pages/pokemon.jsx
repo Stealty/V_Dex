@@ -1,5 +1,5 @@
 import { PokemonDetails } from "@organisms";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useGetPokemonDetailsQuery } from "@api";
 import { setPokemonDetailsSlice } from "@store/modules/pokemonSlice";

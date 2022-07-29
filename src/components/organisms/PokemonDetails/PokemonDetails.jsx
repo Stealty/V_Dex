@@ -8,7 +8,7 @@ import {
   AboutTab,
 } from "@molecules";
 import { useGetPokemonSpeciesQuery } from "@api";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPokemonSpeciesSlice } from "@store/modules/pokemonSlice";
 
@@ -19,7 +19,7 @@ export default function PokemonDetails({ details, loading, name }) {
   const dispatch = useDispatch();
   const description = data?.flavor_text_entries[6].flavor_text
     .toLowerCase()
-    .replace(/[^a-zA-Z0-9 ]/g, " ");
+    .replace(/[^\w ]/g, " ");
 
   useEffect(() => {
     try {
@@ -30,7 +30,13 @@ export default function PokemonDetails({ details, loading, name }) {
   });
 
   return (
-    <div className={styles.PokemonDetails}>
+    <div
+      className={
+        styles.PokemonDetails +
+        " " +
+        styles[`PokemonDetails--${details?.types[0].type.name}`]
+      }
+    >
       <Link className={styles.PokemonDetails__backButton} to={-1}>
         <svg
           width="22"
