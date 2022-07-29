@@ -10,9 +10,9 @@
     justify-content: center;
     bottom: 50px;
     right: 50px;
+    z-index: 2;
 
     &.--active {
-        display: flex;
     }
 
     &:hover {
@@ -22,9 +22,6 @@
 
 .Filter__Svg {
     fill: white;
-    &.--active{
-
-    }
 }
 
 

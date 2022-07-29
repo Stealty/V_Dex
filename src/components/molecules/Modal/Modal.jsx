@@ -15,7 +15,7 @@ const Modal = ({Active}) => {
 
 
     const onClickHandler = (e) => {
-        e.target.classList.toggle(styles["--active"])
+        
     }
 
     return <ul className={!isActive ? styles.Modal : styles.Modal + ` ${styles["--active"]}`}>

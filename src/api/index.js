@@ -36,8 +36,23 @@ export const pokemonSpeciesApi = createApi({
   }),
 });
 
+export const pokemonEvolutionApi = createApi({
+  reducerPath: "pokemonEvolutionApi",
+  baseQuery: fetchBaseQuery({
+    baseUrl: undefined,
+  }),
+  keepUnusedDataFor: 86400,
+  endpoints: (builder) => ({
+    getPokemonEvolution: builder.query({
+      query: (url) => url,
+    }),
+  }),
+});
+
 export const { useGetPokemonDetailsQuery } = pokemonDetailsApi;
 
 export const { useGetPokemonQuery } = pokemonApi;
 
 export const { useGetPokemonSpeciesQuery } = pokemonSpeciesApi;
+
+export const { useGetPokemonEvolutionQuery } = pokemonEvolutionApi;
