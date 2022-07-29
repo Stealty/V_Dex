@@ -1,7 +1,12 @@
 import styles from "./PokemonDetails.module.scss";
 import { Link } from "react-router-dom";
 import { Paragraph, PokemonImage } from "@atoms";
-import { DetailsBackground, PokemonType, LikeHeart } from "@molecules";
+import {
+  DetailsBackground,
+  PokemonType,
+  LikeHeart,
+  AboutTab,
+} from "@molecules";
 import { useGetPokemonDetailsQuery } from "@api";
 import { setPokemonDetailsSlice } from "../../../store/modules/pokemonSlice";
 import { useEffect } from "react";
@@ -86,7 +91,9 @@ export default function PokemonDetails(url) {
           />
         </div>
       </section>
-      {/* <section aria-label="Details about Pokemon"></section> */}
+      <section aria-label="Details about Pokemon">
+        <AboutTab data={data} />
+      </section>
     </div>
   );
 }
