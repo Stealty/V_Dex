@@ -15,7 +15,7 @@ const PokemonEvolution = ({pokemon}) => {
                 34.4214 34.284 28.6831 41.3626 28.6831C48.4412 28.6831 54.1795 34.4214 54.1795 41.5C54.1795 48.5786 48.4412 54.3169
                 41.3626 54.3169C34.284 54.3169 28.5457 48.5786 28.5457 41.5Z" />
             </svg>
-            <PokemonImage className={styles.Evolution__PokemonImage} image={data.sprites.other["official-artwork"].front_default} />
+            <img className={styles.Evolution__PokemonImage} src={data.sprites.other["official-artwork"].front_default} />
         </div>
     }else{
         return <LoadingAnimation />

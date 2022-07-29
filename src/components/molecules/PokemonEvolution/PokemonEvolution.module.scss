@@ -1,15 +1,14 @@
 .Evolution{
-    height: 100%;
-    position: relative;
+    align-items: center;
 
     &__Pokeball{
-        height: 100%;
+        fill: rgba(0, 0, 0, 0.05);
         position: absolute;
+        z-index: 1;
     }
 
     &__PokemonImage{
-        height: 80px;
-        width: 80px;
-        position: absolute;
+        height: 76px;
+        z-index: 2;
     }
 }
