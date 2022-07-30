@@ -6,6 +6,10 @@
     flex-direction: column;
     gap: 42px;
 
+    &.--active {
+        overflow-y: clip;
+    }
+
     .PokemonList {
         display: flex;
         flex-direction: row;

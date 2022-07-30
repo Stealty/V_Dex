@@ -1,5 +1,5 @@
 import styles from "./back.module.scss";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Back = (props) => {
   const Navigate = useNavigate();
