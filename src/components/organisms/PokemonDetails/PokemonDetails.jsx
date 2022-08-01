@@ -10,7 +10,7 @@ import {
 } from "@molecules";
 import { useGetPokemonSpeciesQuery } from "@api";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setPokemonSpeciesSlice } from "@store/modules/pokemonSlice";
 import { PokemonTabs } from "../../molecules";
 
