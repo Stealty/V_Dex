@@ -1,0 +1,26 @@
+.PokemonTabs {
+}
+
+.PokemonTabs__list {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+.PokemonTabs__item {
+  font-size: 14px;
+  color: #303943;
+  opacity: 0.4;
+  padding-bottom: 14px;
+
+  &--active {
+    opacity: 1;
+    border-bottom: 2px solid #6c79db;
+  }
+}
+
+.PokemonTabs__button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
