@@ -12,7 +12,7 @@ import { useGetPokemonSpeciesQuery } from "@api";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setPokemonSpeciesSlice } from "@store/modules/pokemonSlice";
-import { PokemonTabs } from "../../molecules";
+import { PokemonTabs } from "@molecules";
 
 export default function PokemonDetails({ details, loading, name, failed }) {
   const { data, isLoading, error } = useGetPokemonSpeciesQuery(name);
@@ -47,8 +47,6 @@ export default function PokemonDetails({ details, loading, name, failed }) {
       <div className={styles.LikeHeart__wrapper}>
         <LikeHeart />
       </div>
-
-      <DetailsBackground />
 
       <section
         aria-label="Basics about Pokemon"
