@@ -1,5 +1,6 @@
 import { useGetPokemonDetailsQuery } from "@api";
 import { PokemonImage, LoadingAnimation } from "@atoms";
+import { Link } from "react-router-dom";
 import styles from "./PokemonEvolution.module.scss";
 
 const PokemonEvolution = ({pokemon}) => {
@@ -7,6 +8,7 @@ const PokemonEvolution = ({pokemon}) => {
     
     if (!isLoading) {
         return <div className={styles.Evolution}>
+            <Link to={"/pokedex/" + pokemon}>
             <svg className={styles.Evolution__Pokeball} width="83" height="83" viewBox="0 0 83 83">
                 <path d="M82.7252 44.9016H61.2602C59.6432 54.4287 51.3501 61.6831 41.3626 61.6831C31.3751 61.6831 23.082
                 54.4287 21.465 44.9016H0C1.73034 66.2303 19.5881 83 41.3626 83C63.1371 83 80.9949 66.2303 82.7252 44.9016ZM82.6859
@@ -16,6 +18,7 @@ const PokemonEvolution = ({pokemon}) => {
                 41.3626 54.3169C34.284 54.3169 28.5457 48.5786 28.5457 41.5Z" />
             </svg>
             <img className={styles.Evolution__PokemonImage} src={data.sprites.other["official-artwork"].front_default} />
+            </Link>
         </div>
     }else{
         return <LoadingAnimation />

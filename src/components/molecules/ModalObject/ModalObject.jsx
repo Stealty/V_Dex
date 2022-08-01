@@ -1,8 +1,11 @@
 import styles from "./ModalObject.module.scss";
 
 const ModalObject = ({text, svg, onClick, className}) => {
-    const onClickHandler = (e) => {
 
+    const onClickHandler = () => {
+        if(text == "Search"){
+            onClick();
+        }
     }
 
 

@@ -2,7 +2,7 @@ import ModalObject from "../ModalObject/ModalObject";
 import styles from "./Modal.module.scss";
 import { useState, useEffect } from "react";
 
-const Modal = ({Active}) => {
+const Modal = ({Active, onClick}) => {
     const [isActive, setActive] = useState(false);
 
     useEffect(() => {
@@ -14,8 +14,8 @@ const Modal = ({Active}) => {
     }, [Active]);
 
 
-    const onClickHandler = (e) => {
-        
+    const onClickHandler = () => {
+        onClick();
     }
 
     return <ul className={!isActive ? styles.Modal : styles.Modal + ` ${styles["--active"]}`}>

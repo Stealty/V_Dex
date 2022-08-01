@@ -37,7 +37,7 @@ const PokemonCard = (pokemon) => {
         </svg>
         <img
           className={styles.Card__Image}
-          src={data.sprites.front_default}
+          src={data.sprites.other["official-artwork"].front_default}
           alt={data.name}
         />
     </Link>

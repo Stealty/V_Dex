@@ -1,12 +1,12 @@
 import styles from "./PokemonDetails.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Paragraph, PokemonImage, BackArrow } from "@atoms";
 import {
   DetailsBackground,
   PokemonType,
   LikeHeart,
   AboutTab,
-  EvolutionList,
+  Evolutions,
 } from "@molecules";
 import { useGetPokemonSpeciesQuery } from "@api";
 import { useEffect, useState } from "react";
@@ -15,7 +15,8 @@ import { setPokemonSpeciesSlice } from "@store/modules/pokemonSlice";
 import { PokemonTabs } from "@molecules";
 
 export default function PokemonDetails({ details, loading, name, failed }) {
-  const { data, isLoading, error } = useGetPokemonSpeciesQuery(name);
+  const params = useParams();
+  const { data, isLoading, error } = useGetPokemonSpeciesQuery(params.Pokeid);
   const id = details?.id.toString().padStart(3, "0");
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState(0);
@@ -115,7 +116,7 @@ export default function PokemonDetails({ details, loading, name, failed }) {
           {activeTab === 1 && <li>Base Stats</li>}
           {activeTab === 2 && (
             <li>
-              {!isLoading && <EvolutionList species={data} details={details} />}
+              {!isLoading && <Evolutions species={data} details={details} />}
             </li>
           )}
           {activeTab === 3 && <li>Moves</li>}
