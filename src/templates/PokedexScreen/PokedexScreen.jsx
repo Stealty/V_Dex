@@ -2,16 +2,14 @@ import { PokemonCard, Modal, Filter, MenuHamburguer } from "@molecules";
 import { Backdrop, SearchBar } from "@atoms";
 import styles from "./PokedexScreen.module.scss";
 import { useSelector } from "react-redux";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const PokedexScreen = () => {
-    const pokemon = useSelector((state) => state.pokemon.generationFilter.slice(0, 40));
-    const [filteredPokemons, setfilteredPokemons] = useState(pokemon);
+    const pokemon = useSelector((state) => state.pokemon.pokemonSpecies.slice(0, 40));
     const [isActive, setActive] = useState(false);
     const [openSearch, setopenSearch] = useState(false);
     const searchText = useRef();
 
-    console.log(filteredPokemons);
     const onClickHandler = () => {
         setActive(!isActive);
     }

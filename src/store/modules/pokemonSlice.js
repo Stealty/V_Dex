@@ -6,7 +6,7 @@ const pokemonSlice = createSlice({
     pokemon: {},
     pokemons: [],
     generationFilter: [],
-    pokemonSpecies: [{}],
+    pokemonSpecies: [],
     pokemonEvolution: {},
   },
   reducers: {
