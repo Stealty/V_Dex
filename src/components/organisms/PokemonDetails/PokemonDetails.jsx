@@ -1,13 +1,7 @@
 import styles from "./PokemonDetails.module.scss";
 import { Link, useParams } from "react-router-dom";
 import { Paragraph, PokemonImage, BackArrow } from "@atoms";
-import {
-  DetailsBackground,
-  PokemonType,
-  LikeHeart,
-  AboutTab,
-  Evolutions,
-} from "@molecules";
+import { PokemonType, LikeHeart, AboutTab, Evolutions } from "@molecules";
 import { useGetPokemonSpeciesQuery } from "@api";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -42,7 +36,7 @@ export default function PokemonDetails({ details, loading, name, failed }) {
       }
     >
       <Link className={styles.PokemonDetails__backButton} to={"/pokedex"}>
-        <BackArrow fill="white" />
+        <BackArrow fill="white" navigate={"/pokedex"} />
       </Link>
 
       <div className={styles.LikeHeart__wrapper}>

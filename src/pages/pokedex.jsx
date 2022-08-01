@@ -1,23 +1,27 @@
-import React, { useCallback } from "react";
+import { useState } from "react";
 import { PokedexScreen } from "@templates";
 import { setGenerationFilterSlice, setPokemonSpeciesSlice } from "@store/modules/pokemonSlice";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useGetPokemonQuery } from "@api";
+import {  useSelector } from "react-redux";
 
 function Pokedex() {
-  const { data, isLoading, error } = useGetPokemonQuery(151);
-  const dispatch = useDispatch();
+  const [data, setData] = useState([]);
+  const dataStore = useSelector((state) => state.pokemon.pokemons);
+  
   useEffect(() => {
-    if (!isLoading) {
-      dispatch(setGenerationFilterSlice(data.results));
-      dispatch(setPokemonSpeciesSlice(data.results));
+    if (data) {
+      return setData(dataStore);
+    } else {
+      return;
     }
-  }, [isLoading]);
+  }, [dataStore]);
 
-  return <>
-    <PokedexScreen  />
-  </>
+
+  return (
+    <>
+      <PokedexScreen />
+    </>
+  );
 }
 
 export default Pokedex;

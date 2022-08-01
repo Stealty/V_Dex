@@ -1,6 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import { pokemonApi, pokemonDetailsApi, pokemonSpeciesApi, pokemonEvolutionApi } from "@api";
+import {
+  pokemonApi,
+  pokemonDetailsApi,
+  pokemonSpeciesApi,
+  pokemonEvolutionApi,
+} from "@api";
 import pokemonSliceReducer from "@store/modules/pokemonSlice";
 
 export const store = configureStore({
@@ -21,7 +26,7 @@ export const store = configureStore({
     ),
 });
 
-setupListeners(store.dispatch);
+// setupListeners(store.dispatch);
 
 // store.subscribe(() => {
 //   console.log(store.getState().pokemon.pokemons);
