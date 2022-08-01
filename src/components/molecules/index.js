@@ -11,3 +11,4 @@ export { default as PokemonCard } from "./PokemonCard/PokemonCard";
 export { default as PokemonEvolution } from "./PokemonEvolution/PokemonEvolution";
 export { default as PokemonSize } from "./PokemonSize/PokemonSize";
 export { default as PokemonType } from "./PokemonType/PokemonType";
+export { default as PokemonTabs } from "./PokemonTabs/PokemonTabs";

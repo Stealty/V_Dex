@@ -6,17 +6,19 @@ import {
   PokemonType,
   LikeHeart,
   AboutTab,
-  EvolutionList
+  EvolutionList,
 } from "@molecules";
 import { useGetPokemonSpeciesQuery } from "@api";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPokemonSpeciesSlice } from "@store/modules/pokemonSlice";
+import { PokemonTabs } from "../../molecules";
 
 export default function PokemonDetails({ details, loading, name, failed }) {
   const { data, isLoading, error } = useGetPokemonSpeciesQuery(name);
   const id = details?.id.toString().padStart(3, "0");
   const dispatch = useDispatch();
+  const [activeTab, setActiveTab] = useState(0);
 
   const description = data?.flavor_text_entries[6].flavor_text
     .toLowerCase()
@@ -30,8 +32,6 @@ export default function PokemonDetails({ details, loading, name, failed }) {
     }
   });
 
-  console.log(details?.sprites.other);
-
   return (
     <div
       className={
@@ -40,7 +40,7 @@ export default function PokemonDetails({ details, loading, name, failed }) {
         styles[`PokemonDetails--${details?.types[0].type.name}`]
       }
     >
-      <Link className={styles.PokemonDetails__backButton} to={-1}>
+      <Link className={styles.PokemonDetails__backButton} to={"/pokedex"}>
         <BackArrow fill="white" />
       </Link>
 
@@ -96,11 +96,28 @@ export default function PokemonDetails({ details, loading, name, failed }) {
           />
         </div>
       </section>
-      <section aria-label="Details about Pokemon">
-        <AboutTab data={details} description={description} />
-      </section>
-      <section aria-label="Pokémon Evolutions">
-        {!isLoading && <EvolutionList species={data} details={details} />}
+
+      <section
+        aria-label="Details about Pokemon"
+        className={styles.PokemonDetails__details}
+      >
+        <PokemonTabs activeTab={activeTab} setActiveTab={setActiveTab} />
+        <ul className={styles.PokemonDetails__list}>
+          {activeTab === 0 && (
+            <li>
+              {!isLoading && (
+                <AboutTab data={details} description={description} />
+              )}
+            </li>
+          )}
+          {activeTab === 1 && <li>Base Stats</li>}
+          {activeTab === 2 && (
+            <li>
+              {!isLoading && <EvolutionList species={data} details={details} />}
+            </li>
+          )}
+          {activeTab === 3 && <li>Moves</li>}
+        </ul>
       </section>
     </div>
   );

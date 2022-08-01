@@ -1,5 +1,15 @@
 .PokemonDetails {
-  height: 100vh;
+  &__details {
+    background-color: white;
+    padding: 46px 29px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    margin-top: -34px;
+  }
+
+  &__list {
+    list-style-type: none;
+  }
 
   &__backButton {
     background-color: transparent;

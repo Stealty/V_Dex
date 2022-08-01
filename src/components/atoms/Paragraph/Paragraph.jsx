@@ -10,7 +10,8 @@ export default function Paragraph({
   opacity,
 }) {
   return (
-    <h1
+    <p
+      aria-label={title}
       className={
         className != null
           ? className + " " + styles.Paragraph
@@ -28,6 +29,6 @@ export default function Paragraph({
       }
     >
       {title}
-    </h1>
+    </p>
   );
 }
