@@ -1,9 +1,10 @@
-import { PokemonDetails} from "@organisms";
+import { PokemonDetails } from "@organisms";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useGetPokemonDetailsQuery } from "@api";
 import { setPokemonDetailsSlice } from "@store/modules/pokemonSlice";
+import { DetailsBackground } from "@molecules";
 
 export default function Pokemon() {
   const name = useParams();
@@ -19,11 +20,14 @@ export default function Pokemon() {
   }, [isLoading]);
 
   return (
-    <PokemonDetails
-      details={data}
-      isLoading={isLoading}
-      failed={error}
-      name={name}
-    />
+    <>
+      <DetailsBackground />
+      <PokemonDetails
+        details={data}
+        isLoading={isLoading}
+        failed={error}
+        name={name}
+      />
+    </>
   );
 }
