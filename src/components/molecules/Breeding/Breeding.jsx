@@ -16,12 +16,12 @@ export default function Breeding({ data, date }) {
         <Paragraph title="Gender" opacity="04" size="14" />
         <Paragraph
           size="14"
-          icon={<MaleIcon />}
+          icon={gender > 0 && <MaleIcon />}
           title={gender < 0 ? "Unknown" : malePercent + "%"}
         />
         <Paragraph
           size="14"
-          icon={<FemaleIcon />}
+          icon={gender > 0 && <FemaleIcon />}
           title={gender < 0 ? null : femalePercent + "%"}
         />
       </div>
