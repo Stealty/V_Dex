@@ -106,7 +106,11 @@ export default function PokemonDetails({ details, loading, name, failed }) {
           {activeTab === 0 && (
             <li>
               {!isLoading && (
-                <AboutTab data={details} description={description} />
+                <AboutTab
+                  data={details}
+                  description={description}
+                  species={data}
+                />
               )}
             </li>
           )}
