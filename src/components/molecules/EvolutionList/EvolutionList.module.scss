@@ -1,26 +1,22 @@
-.EvolutionTab {
-    padding: 28px;
+.Evolution {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 30vh;
 
-    .Evolution {
+    &__EvolutionStatus {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        width: 90%;
+    }
+
+    &__Trigger {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        justify-content: space-around;
-        height: 30vh;
-
-        &__EvolutionStatus {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            width: 90%;
-        }
-
-        &__Trigger {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
     }
 }

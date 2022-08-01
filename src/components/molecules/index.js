@@ -2,6 +2,7 @@ export { default as AboutTab } from "./AboutTab/AboutTab";
 export { default as CategoriesCard } from "./CategoriesCard/CategoriesCard";
 export { default as DetailsBackground } from "./DetailsBackground/DetailsBackground";
 export { default as EvolutionList } from "./EvolutionList/EvolutionList";
+export { default as Evolutions } from "./Evolutions/Evolutions";
 export { default as Filter } from "./Filter/Filter";
 export { default as LikeHeart } from "./LikeHeart/LikeHeart";
 export { default as MenuHamburguer } from "./menuhamburguer/menuhamburguer";

@@ -1,12 +1,13 @@
 import { PokemonDetails} from "@organisms";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { useGetPokemonDetailsQuery } from "@api";
 import { setPokemonDetailsSlice } from "@store/modules/pokemonSlice";
 
 export default function Pokemon() {
-  const name = location.pathname.split("/")[2].toLocaleLowerCase();
-  const { data, isLoading, error } = useGetPokemonDetailsQuery(name);
+  const name = useParams();
+  const { data, isLoading, error } = useGetPokemonDetailsQuery(name.Pokeid);
   const dispatch = useDispatch();
 
   useEffect(() => {
