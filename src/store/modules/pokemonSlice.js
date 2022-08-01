@@ -5,7 +5,8 @@ const pokemonSlice = createSlice({
   initialState: {
     pokemon: {},
     pokemons: [],
-    pokemonSpecies: {},
+    generationFilter: [],
+    pokemonSpecies: [{}],
     pokemonEvolution: {},
   },
   reducers: {
@@ -14,6 +15,9 @@ const pokemonSlice = createSlice({
     },
     setPokemonDetailsSlice: (state, action) => {
       state.pokemon = action.payload;
+    },
+    setGenerationFilterSlice: (state, action) => {
+      state.generationFilter = action.payload;
     },
     setPokemonSpeciesSlice: (state, action) => {
       state.pokemonSpecies = action.payload;
@@ -27,6 +31,9 @@ const pokemonSlice = createSlice({
 export const setPokemonSlice = pokemonSlice.actions.setPokemonSlice;
 export const setPokemonDetailsSlice =
   pokemonSlice.actions.setPokemonDetailsSlice;
+
+export const setGenerationFilterSlice =
+  pokemonSlice.actions.setGenerationFilterSlice;
 
 export const setPokemonSpeciesSlice =
   pokemonSlice.actions.setPokemonSpeciesSlice;

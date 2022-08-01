@@ -18,4 +18,17 @@
         gap: 10px;
         flex-wrap: wrap;
     }
+
+    &__Search{
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: white;
+
+        &Bar{
+            width: 90%;
+        }
+    }
 }

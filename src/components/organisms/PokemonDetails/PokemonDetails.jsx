@@ -21,7 +21,6 @@ export default function PokemonDetails({ details, loading, name, failed }) {
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState(0);
 
-  console.log(params);
   const description = data?.flavor_text_entries[6].flavor_text
     .toLowerCase()
     .replace(/[^\w ]/g, " ");

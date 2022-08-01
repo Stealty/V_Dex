@@ -1,16 +1,29 @@
 import { PokemonCard, Modal, Filter, MenuHamburguer } from "@molecules";
-import { Backdrop } from "@atoms";
+import { Backdrop, SearchBar } from "@atoms";
 import styles from "./PokedexScreen.module.scss";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const PokedexScreen = () => {
-    const pokemon = useSelector((state) => state.pokemon.pokemons.slice(0, 40));
+    const pokemon = useSelector((state) => state.pokemon.generationFilter.slice(0, 40));
+    const [filteredPokemons, setfilteredPokemons] = useState(pokemon);
     const [isActive, setActive] = useState(false);
+    const [openSearch, setopenSearch] = useState(false);
+    const searchText = useRef();
 
+    console.log(filteredPokemons);
     const onClickHandler = () => {
         setActive(!isActive);
     }
+
+    const Search = () => {
+        setopenSearch(!openSearch);
+    }
+
+    const onFilter = () => {
+        console.log(searchText.current.value);
+    }
+
     return <div className={!isActive ? styles.PokedexScreen : styles.PokedexScreen + " " + styles["--active"]}>
         <MenuHamburguer></MenuHamburguer>
         <div className={styles.PokemonList}>
@@ -19,7 +32,11 @@ const PokedexScreen = () => {
         </div>
         <Filter onClick={onClickHandler} Active={isActive}></Filter>
         <Backdrop Active={isActive}>
-            <Modal Active={isActive} />
+            <Modal onClick={Search} Active={isActive} />
+            {openSearch == true && 
+            <div className={styles.PokedexScreen__Search}>
+                <SearchBar onChange={onFilter} search={searchText} className={styles.PokedexScreen__SearchBar} type="text" placeholder="Search Pokemon" />
+            </div>}
         </Backdrop>
     </div>
 };
