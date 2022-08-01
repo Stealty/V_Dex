@@ -1,0 +1,18 @@
+.Breeding {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+
+  &__gender {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr;
+  }
+  &__eggGroups {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+  }
+  &__eggCycle {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+  }
+}

@@ -1,8 +1,10 @@
 import styles from "./AboutTab.module.scss";
 import { Paragraph } from "@atoms";
 import { PokemonSize } from "@molecules";
+import { Breeding } from "@molecules";
+import Training from "../Training/Training";
 
-export default function AboutTab({ data, description }) {
+export default function AboutTab({ data, description, species }) {
   return (
     <div className={styles.AboutTab}>
       <Paragraph
@@ -12,9 +14,9 @@ export default function AboutTab({ data, description }) {
         color="dark-gray"
         title={description}
       />
-      <div className={styles.AboutTab__sie}>
-        <PokemonSize data={data} />
-      </div>
+      <PokemonSize data={data} />
+      <Breeding data={species} date={data} />
+      <Training exp={data?.base_experience} />
     </div>
   );
 }

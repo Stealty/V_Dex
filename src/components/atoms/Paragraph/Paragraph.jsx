@@ -8,6 +8,7 @@ export default function Paragraph({
   weight,
   height,
   opacity,
+  icon,
 }) {
   return (
     <p
@@ -28,6 +29,8 @@ export default function Paragraph({
             styles[`Paragraph--opacity${opacity}`]
       }
     >
+      {icon && icon}
+      {icon && " "}
       {title}
     </p>
   );
