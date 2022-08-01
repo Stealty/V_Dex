@@ -1,16 +1,19 @@
 import styles from "./back.module.scss";
 import { useNavigate } from "react-router-dom";
+import { useCallback } from "react";
 
-const Back = ({className, fill}) => {
+const Back = ({ className, fill, navigate }) => {
   const Navigate = useNavigate();
-  const OnClickHandler = () => {
-    Navigate(-1);
-  };
+  const OnClickHandler = useCallback(() => {
+    Navigate(navigate ? navigate : -1);
+  }, [navigate]);
 
   return (
     <svg
       onClick={OnClickHandler}
-      className={className != null ? `${className} ${styles.Back}` : styles.Back}
+      className={
+        className != null ? `${className} ${styles.Back}` : styles.Back
+      }
       width="22"
       height="14"
       viewBox="0 0 22 14"

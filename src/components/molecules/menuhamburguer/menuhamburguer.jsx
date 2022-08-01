@@ -5,7 +5,10 @@ import { BackArrow, Paragraph } from "@atoms";
 const MenuHamburguer = () => {
   return (
     <nav className={styles.Navigation}>
-      <BackArrow className={styles["Navigation__BackArrow"]} />
+      <BackArrow
+        className={styles["Navigation__BackArrow"]}
+        navigate={"/home"}
+      />
       <ul className={styles.Navigation__Menu}>
         <li className={styles.Menu__Lista}>
           <span className={styles.Menu__Ponto}></span>
@@ -33,6 +36,7 @@ const MenuHamburguer = () => {
         className={styles["Navigation__Title"]}
       ></Paragraph>
     </nav>
-)}
+  );
+};
 
 export default MenuHamburguer;
