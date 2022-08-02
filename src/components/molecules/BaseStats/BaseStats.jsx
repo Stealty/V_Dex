@@ -3,6 +3,7 @@ import { Paragraph } from "@atoms";
 import statsConverter from "@utils/statsConverter.js";
 import toPercent from "@utils/toPercent";
 import statsSum from "@utils/statsSum";
+import { TypeDefenses } from "@molecules";
 
 export default function BaseStats({ data }) {
   const sum = statsSum(data);
@@ -40,6 +41,7 @@ export default function BaseStats({ data }) {
           style={{ width: `${toPercent(sum / 6)}%` }}
         />
       </div>
+      <TypeDefenses defenses={""} />
     </div>
   );
 }

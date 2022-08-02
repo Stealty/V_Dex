@@ -6,9 +6,7 @@ import { useGetPokemonSpeciesQuery } from "@api";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setPokemonSpeciesSlice } from "@store/modules/pokemonSlice";
-import { PokemonTabs } from "@molecules";
-import { BaseStats } from "../../molecules";
-import statsSum from "../../../utils/statsSum";
+import { PokemonTabs, BaseStats } from "@molecules";
 
 export default function PokemonDetails({ details, loading, name, failed }) {
   const params = useParams();
@@ -21,13 +19,13 @@ export default function PokemonDetails({ details, loading, name, failed }) {
     .toLowerCase()
     .replace(/[^\w ]/g, " ");
 
-  // useEffect(() => {
-  //   try {
-  //     !isLoading && dispatch(setPokemonSpeciesSlice(data));
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // });
+  useEffect(() => {
+    try {
+      !isLoading && dispatch(setPokemonSpeciesSlice(data));
+    } catch (error) {
+      console.log(error);
+    }
+  });
 
   return (
     <div
