@@ -1,0 +1,24 @@
+.BaseStats {
+  display: grid;
+  grid-template-columns: 0.7fr 0.5fr 1fr;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.BaseStats__progressBar {
+  &--red {
+    background-color: #fb6c6c;
+    height: 3px;
+    border-radius: 110px;
+  }
+
+  &--green {
+    background-color: #4bc07a;
+    height: 3px;
+    border-radius: 110px;
+  }
+}
+
+.BaseStats__progressBar--red {
+  background-color: red;
+}

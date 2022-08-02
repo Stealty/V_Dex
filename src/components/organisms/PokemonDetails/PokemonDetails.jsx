@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setPokemonSpeciesSlice } from "@store/modules/pokemonSlice";
 import { PokemonTabs } from "@molecules";
+import { BaseStats } from "../../molecules";
+import statsSum from "../../../utils/statsSum";
 
 export default function PokemonDetails({ details, loading, name, failed }) {
   const params = useParams();
@@ -14,18 +16,19 @@ export default function PokemonDetails({ details, loading, name, failed }) {
   const id = details?.id.toString().padStart(3, "0");
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState(0);
+  const sum = statsSum(details?.stats);
 
   const description = data?.flavor_text_entries[6].flavor_text
     .toLowerCase()
     .replace(/[^\w ]/g, " ");
 
-  useEffect(() => {
-    try {
-      !isLoading && dispatch(setPokemonSpeciesSlice(data));
-    } catch (error) {
-      console.log(error);
-    }
-  });
+  // useEffect(() => {
+  //   try {
+  //     !isLoading && dispatch(setPokemonSpeciesSlice(data));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // });
 
   return (
     <div
@@ -107,7 +110,23 @@ export default function PokemonDetails({ details, loading, name, failed }) {
               )}
             </li>
           )}
-          {activeTab === 1 && <li>Base Stats</li>}
+          {activeTab === 1 &&
+            details?.stats.map((status) => (
+              <li key={status.stat.name}>
+                <BaseStats type={status.stat.name} value={status.base_stat} />
+              </li>
+            ))}
+
+          {activeTab === 1 && (
+            <li>
+              <BaseStats
+                type="Total"
+                value={sum}
+                progress={sum / details?.stats.length}
+              />
+            </li>
+          )}
+
           {activeTab === 2 && (
             <li>
               {!isLoading && <Evolutions species={data} details={details} />}

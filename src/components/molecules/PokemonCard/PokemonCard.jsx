@@ -3,20 +3,23 @@ import { useGetPokemonDetailsQuery } from "@api";
 import { LoadingAnimation } from "@atoms";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux/es/exports";
+import { setPokemonDetailsSlice } from "@store/modules/pokemonSlice";
 
 const PokemonCard = (pokemon) => {
+  const dispatch = useDispatch();
   const { data, isLoading, error } = useGetPokemonDetailsQuery(
     pokemon.pokemon.name
   );
 
-  useEffect(()=>{
+  useEffect(() => {});
 
-  })
-
-  
   if (!isLoading) {
     return (
-      <Link to={data.name} className={`${styles.Card} ${styles[`--${data.types[0].type.name}`]}`}>
+      <Link
+        to={data.name}
+        className={`${styles.Card} ${styles[`--${data.types[0].type.name}`]}`}
+      >
         <h1 className={styles.Card__Name}>{data.name}</h1>
         <p className={styles.Card__Type1}>{data.types[0].type.name}</p>
         {data.types[1] != null && (
@@ -40,7 +43,7 @@ const PokemonCard = (pokemon) => {
           src={data.sprites.other["official-artwork"].front_default}
           alt={data.name}
         />
-    </Link>
+      </Link>
     );
   } else {
     return <LoadingAnimation />;

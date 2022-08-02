@@ -5,14 +5,16 @@ import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 
 const PokedexScreen = () => {
-    const pokemon = useSelector((state) => state.pokemon.pokemonSpecies.slice(0, 40));
-    const [isActive, setActive] = useState(false);
-    const [openSearch, setopenSearch] = useState(false);
-    const searchText = useRef();
+  const pokemon = useSelector((state) =>
+    state.pokemon.pokemonSpecies.slice(0, 40)
+  );
+  const [isActive, setActive] = useState(false);
+  const [openSearch, setopenSearch] = useState(false);
+  const searchText = useRef();
 
-    const onClickHandler = () => {
-        setActive(!isActive);
-    }
+  const onClickHandler = () => {
+    setActive(!isActive);
+  };
 
   const Search = () => {
     setopenSearch(!openSearch);
