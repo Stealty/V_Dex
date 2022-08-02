@@ -16,3 +16,4 @@ export { default as PokemonTabs } from "./PokemonTabs/PokemonTabs";
 export { default as Breeding } from "./Breeding/Breeding";
 export { default as Training } from "./Training/Training";
 export { default as BaseStats } from "./BaseStats/BaseStats";
+export { default as TypeDefenses } from "./TypeDefenses/TypeDefenses";
