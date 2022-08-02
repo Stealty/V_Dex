@@ -16,7 +16,6 @@ export default function PokemonDetails({ details, loading, name, failed }) {
   const id = details?.id.toString().padStart(3, "0");
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState(0);
-  const sum = statsSum(details?.stats);
 
   const description = data?.flavor_text_entries[6].flavor_text
     .toLowerCase()
@@ -110,23 +109,11 @@ export default function PokemonDetails({ details, loading, name, failed }) {
               )}
             </li>
           )}
-          {activeTab === 1 &&
-            details?.stats.map((status) => (
-              <li key={status.stat.name}>
-                <BaseStats type={status.stat.name} value={status.base_stat} />
-              </li>
-            ))}
-
           {activeTab === 1 && (
             <li>
-              <BaseStats
-                type="Total"
-                value={sum}
-                progress={sum / details?.stats.length}
-              />
+              <BaseStats data={details?.stats} />
             </li>
           )}
-
           {activeTab === 2 && (
             <li>
               {!isLoading && <Evolutions species={data} details={details} />}

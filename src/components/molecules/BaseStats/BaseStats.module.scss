@@ -1,24 +1,28 @@
 .BaseStats {
-  display: grid;
-  grid-template-columns: 0.7fr 0.5fr 1fr;
-  align-items: center;
-  text-transform: capitalize;
-}
-
-.BaseStats__progressBar {
-  &--red {
-    background-color: #fb6c6c;
-    height: 3px;
-    border-radius: 110px;
+  margin-top: 26px;
+  &__items {
+    display: grid;
+    grid-template-columns: 0.7fr 0.5fr 1fr;
+    align-items: center;
+    text-transform: capitalize;
   }
 
-  &--green {
-    background-color: #4bc07a;
-    height: 3px;
-    border-radius: 110px;
+  &__progressBar {
+    &--red {
+      background-color: #fb6c6c;
+      height: 3px;
+      border-radius: 110px;
+    }
+    &--green {
+      background-color: #4bc07a;
+      height: 3px;
+      border-radius: 110px;
+    }
   }
-}
-
-.BaseStats__progressBar--red {
-  background-color: red;
+  &__total {
+    display: grid;
+    grid-template-columns: 0.7fr 0.5fr 1fr;
+    align-items: center;
+    text-transform: capitalize;
+  }
 }
