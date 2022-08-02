@@ -3,7 +3,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    height: 30vh;
+    overflow: visible;
+    height: 40vh;
 
     &__EvolutionStatus {
         display: flex;
