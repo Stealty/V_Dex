@@ -4,10 +4,12 @@ import styles from "./PokedexScreen.module.scss";
 import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 
-const PokedexScreen = () => {
-  const pokemon = useSelector((state) =>
-    state.pokemon.pokemonSpecies.slice(0, 40)
+const PokedexScreen = ({data}) => {
+  const AllPokemon = useSelector((state) =>
+    state.pokemon.pokemonSpecies.slice()
   );
+  const [isLoading, setLoading] = useState(false);
+  const [pokemon, SetPokemons] = useState(data.slice(0, 40));
   const [isActive, setActive] = useState(false);
   const [openSearch, setopenSearch] = useState(false);
   const searchText = useRef();
@@ -21,7 +23,14 @@ const PokedexScreen = () => {
   };
 
   const onFilter = () => {
-    console.log(searchText.current.value);
+    setLoading(true);
+    setInterval(() => {
+      SetPokemons(AllPokemon.filter((pokemon) => pokemon.name.toString().toLowerCase().includes(searchText.current.value.toString().toLowerCase())));
+      setLoading(false);
+      if(searchText.current.value.trim() == ""){
+        SetPokemons(AllPokemon.slice(0, 40));
+      }
+    }, 5000);
   };
 
   return (
@@ -34,7 +43,7 @@ const PokedexScreen = () => {
     >
       <MenuHamburguer></MenuHamburguer>
       <div className={styles.PokemonList}>
-        {pokemon.map((pokemon) => (
+        {!isLoading && pokemon.map((pokemon) => (
           <PokemonCard key={pokemon.name} pokemon={pokemon} />
         ))}
       </div>

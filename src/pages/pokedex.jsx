@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { PokedexScreen } from "@templates";
 import {
   setGenerationFilterSlice,
@@ -20,7 +19,7 @@ function Pokedex() {
 
   return (
     <>
-      <PokedexScreen />
+      {!isLoading && <PokedexScreen data={data.results} />}
     </>
   );
 }
