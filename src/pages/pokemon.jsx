@@ -8,7 +8,7 @@ import { DetailsBackground } from "@molecules";
 
 export default function Pokemon() {
   const name = useParams();
-  const { data, isLoading, error } = useGetPokemonDetailsQuery(name.Pokeid);
+  const { data, isLoading, error } = useGetPokemonDetailsQuery(name?.Pokeid);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,12 +22,7 @@ export default function Pokemon() {
   return (
     <>
       <DetailsBackground />
-      <PokemonDetails
-        details={data}
-        isLoading={isLoading}
-        failed={error}
-        name={name}
-      />
+      <PokemonDetails details={data} />
     </>
   );
 }

@@ -4,7 +4,7 @@ import { Paragraph } from "@atoms";
 export default function PokemonSize({ data }) {
   return (
     <div className={styles.PokemonSize}>
-      <div>
+      <div className={styles.PokemonSize__height}>
         <Paragraph
           title="Height"
           size="14"
@@ -18,7 +18,7 @@ export default function PokemonSize({ data }) {
           height="28"
         />
       </div>
-      <div>
+      <div className={styles.PokemonSize__weight}>
         <Paragraph title="Weight" size="14" opacity="04" height="28" />
         <Paragraph
           title={(data?.weight / 10).toString().padEnd(3, "0") + " kg"}
