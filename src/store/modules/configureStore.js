@@ -26,7 +26,7 @@ export const store = configureStore({
     ),
 });
 
-// setupListeners(store.dispatch);
+setupListeners(store.dispatch);
 
 // store.subscribe(() => {
 //   console.log(store.getState().pokemon.pokemons);

@@ -4,18 +4,15 @@ import { Paragraph, PokemonImage, BackArrow } from "@atoms";
 import { PokemonType, LikeHeart, AboutTab, Evolutions } from "@molecules";
 import { useGetPokemonSpeciesQuery } from "@api";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setPokemonSpeciesSlice } from "@store/modules/pokemonSlice";
-import { PokemonTabs } from "@molecules";
-import { BaseStats } from "../../molecules";
-import statsSum from "../../../utils/statsSum";
+import { PokemonTabs, BaseStats } from "@molecules";
 
-export default function PokemonDetails({ details, loading, name, failed }) {
+export default function PokemonDetails({ details }) {
   const params = useParams();
   const { data, isLoading, error } = useGetPokemonSpeciesQuery(params.Pokeid);
-  const id = details?.id.toString().padStart(3, "0");
-  const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState(0);
+  const id = details?.id.toString().padStart(3, "0");
 
   const description = data?.flavor_text_entries[6].flavor_text
     .toLowerCase()
@@ -49,7 +46,7 @@ export default function PokemonDetails({ details, loading, name, failed }) {
         aria-label="Basics about Pokemon"
         className={styles.PokemonDetails__basics}
       >
-        {loading ? (
+        {isLoading ? (
           <Paragraph title="Loading..." color="white" weight="bold" size="36" />
         ) : (
           <>
