@@ -84,7 +84,9 @@ export default function PokemonDetails({ details }) {
 
         <div className={styles.PokemonImage__wrapper}>
           <div className={styles.PokemonImage__before}>
-            {previous && <PokemonEvolution pokemon={previous} />}
+            {previous && (
+              <PokemonEvolution pokemon={previous > 0 ? previous : "898"} />
+            )}
           </div>
 
           <PokemonImage
@@ -93,7 +95,7 @@ export default function PokemonDetails({ details }) {
           />
 
           <div className={styles.PokemonImage__next}>
-            {next && <PokemonEvolution pokemon={next} />}
+            {next && <PokemonEvolution pokemon={next > 898 ? "1" : next} />}
           </div>
         </div>
       </section>
