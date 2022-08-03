@@ -9,7 +9,6 @@ lerna-debug.log*
 
 src/utils/trash.js
 node_modules
-dist
 dist-ssr
 *.local
 
