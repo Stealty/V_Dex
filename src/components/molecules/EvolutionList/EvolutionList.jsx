@@ -15,7 +15,6 @@ const EvolutionList = ({ pokemon }) => {
         Ev2: (pokemon.chain.evolves_to[0] != null | undefined && pokemon.chain.evolves_to[0].evolves_to[0] != null | undefined ? pokemon.chain.evolves_to[0].evolves_to[0].species.name : null),
         Ev3: (pokemon.chain.evolves_to[0] != null | undefined && pokemon.chain.evolves_to[0].evolves_to[1] != null | undefined ? pokemon.chain.evolves_to[0].evolves_to[1].species.name : null)
     };
-    console.log(pokemon)
     return <div className={styles.Evolution}>
         {PokemonEv.Ev1 != null ? <div className={styles.Evolution__EvolutionStatus}>
             <PokemonEvolution pokemon={PokemonEv.pokemon} />

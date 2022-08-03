@@ -73,7 +73,7 @@ export default function PokemonDetails({ details }) {
                 )}
               </div>
               <Paragraph
-                title="Seed Pokemon"
+                title={data.genera[7].genus}
                 color="white"
                 size="14"
                 weight="light"
