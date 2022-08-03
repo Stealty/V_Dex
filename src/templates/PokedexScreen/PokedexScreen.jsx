@@ -4,7 +4,7 @@ import styles from "./PokedexScreen.module.scss";
 import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 
-const PokedexScreen = ({data}) => {
+const PokedexScreen = ({ data }) => {
   const AllPokemon = useSelector((state) =>
     state.pokemon.pokemonSpecies.slice()
   );
@@ -25,9 +25,16 @@ const PokedexScreen = ({data}) => {
   const onFilter = () => {
     setLoading(true);
     setInterval(() => {
-      SetPokemons(AllPokemon.filter((pokemon) => pokemon.name.toString().toLowerCase().includes(searchText.current.value.toString().toLowerCase())));
+      SetPokemons(
+        AllPokemon.filter((pokemon) =>
+          pokemon.name
+            .toString()
+            .toLowerCase()
+            .includes(searchText.current.value.toString().toLowerCase())
+        )
+      );
       setLoading(false);
-      if(searchText.current.value.trim() == ""){
+      if (searchText.current.value.trim() == "") {
         SetPokemons(AllPokemon.slice(0, 40));
       }
     }, 5000);
@@ -43,9 +50,10 @@ const PokedexScreen = ({data}) => {
     >
       <MenuHamburguer></MenuHamburguer>
       <div className={styles.PokemonList}>
-        {!isLoading && pokemon.map((pokemon) => (
-          <PokemonCard key={pokemon.name} pokemon={pokemon} />
-        ))}
+        {!isLoading &&
+          pokemon.map((pokemon) => (
+            <PokemonCard key={pokemon.name} pokemon={pokemon} />
+          ))}
       </div>
       <Filter onClick={onClickHandler} Active={isActive}></Filter>
       <Backdrop Active={isActive}>
