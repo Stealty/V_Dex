@@ -4,7 +4,7 @@ export const pokemonApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `https://pokeapi.co/api/v2/pokemon-species/`,
   }),
-  keepUnusedDataFor: 86400,
+  keepUnusedDataFor: 300,
   endpoints: (builder) => ({
     getPokemon: builder.query({
       query: (limit) => `?limit=${limit}`,
@@ -15,7 +15,7 @@ export const pokemonApi = createApi({
 export const pokemonDetailsApi = createApi({
   reducerPath: "pokemonDetailsApi",
   baseQuery: fetchBaseQuery({ baseUrl: "https://pokeapi.co/api/v2/pokemon/" }),
-  keepUnusedDataFor: 86400,
+  keepUnusedDataFor: 300,
   endpoints: (builder) => ({
     getPokemonDetails: builder.query({
       query: (name) => name,
@@ -28,7 +28,7 @@ export const pokemonSpeciesApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `https://pokeapi.co/api/v2/pokemon-species/`,
   }),
-  keepUnusedDataFor: 86400,
+  keepUnusedDataFor: 300,
   endpoints: (builder) => ({
     getPokemonSpecies: builder.query({
       query: (pokemonName) => pokemonName,
@@ -41,7 +41,7 @@ export const pokemonEvolutionApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: undefined,
   }),
-  keepUnusedDataFor: 86400,
+  keepUnusedDataFor: 300,
   endpoints: (builder) => ({
     getPokemonEvolution: builder.query({
       query: (url) => url,
