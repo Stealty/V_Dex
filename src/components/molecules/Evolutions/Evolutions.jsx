@@ -1,5 +1,5 @@
-import { useGetPokemonEvolutionQuery, useGetPokemonDetailsQuery } from "@api";
-import { useEffect } from "react";
+import { useGetPokemonEvolutionQuery } from "@api";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setPokemonEvolutionSlice } from "@store/modules/pokemonSlice";
 import { Paragraph } from "@atoms";
@@ -10,18 +10,19 @@ const Evolutions = ({ species }) => {
   const { data, isLoading, error } = useGetPokemonEvolutionQuery(
     species.evolution_chain.url
   );
+  const [loading, setLoading] = useState(true);
 
   const dispatch = useDispatch();
   useEffect(() => {
     try {
       !isLoading && dispatch(setPokemonEvolutionSlice(data));
-
+      setTimeout(() => setLoading(false), 500);
     } catch (error) {
       console.log(error);
     }
   });
 
-  if (!isLoading) {
+  if (!loading) {
     return (
       <div className={styles.EvolutionTab}>
         <Paragraph title="Evolution Chain" />

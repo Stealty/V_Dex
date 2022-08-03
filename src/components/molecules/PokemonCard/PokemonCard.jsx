@@ -3,16 +3,11 @@ import { useGetPokemonDetailsQuery } from "@api";
 import { LoadingAnimation } from "@atoms";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux/es/exports";
-import { setPokemonDetailsSlice } from "@store/modules/pokemonSlice";
 
 const PokemonCard = (pokemon) => {
-  const dispatch = useDispatch();
   const { data, isLoading, error } = useGetPokemonDetailsQuery(
     pokemon.pokemon.name
   );
-
-  useEffect(() => {});
 
   if (!isLoading) {
     return (
