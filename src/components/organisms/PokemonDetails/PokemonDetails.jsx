@@ -6,25 +6,26 @@ import { useGetPokemonSpeciesQuery } from "@api";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPokemonSpeciesSlice } from "@store/modules/pokemonSlice";
-import { PokemonTabs, BaseStats } from "@molecules";
+import { PokemonTabs, BaseStats, PokemonEvolution } from "@molecules";
 
 export default function PokemonDetails({ details }) {
   const params = useParams();
   const { data, isLoading, error } = useGetPokemonSpeciesQuery(params.Pokeid);
   const [activeTab, setActiveTab] = useState(0);
+  const [previous, setPrevious] = useState(null);
+  const [next, setNext] = useState(null);
   const id = details?.id.toString().padStart(3, "0");
 
   const description = data?.flavor_text_entries[6].flavor_text
     .toLowerCase()
     .replace(/[^\w ]/g, " ");
 
-  // useEffect(() => {
-  //   try {
-  //     !isLoading && dispatch(setPokemonSpeciesSlice(data));
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // });
+  useEffect(() => {
+    if (!isLoading) {
+      setPrevious((details?.id - 1).toString());
+      setNext((details?.id + 1).toString());
+    }
+  });
 
   return (
     <div
@@ -82,10 +83,18 @@ export default function PokemonDetails({ details }) {
         )}
 
         <div className={styles.PokemonImage__wrapper}>
+          <div className={styles.PokemonImage__before}>
+            {previous && <PokemonEvolution pokemon={previous} />}
+          </div>
+
           <PokemonImage
             image={details?.sprites.other["official-artwork"].front_default}
             name={details?.name}
           />
+
+          <div className={styles.PokemonImage__next}>
+            {next && <PokemonEvolution pokemon={next} />}
+          </div>
         </div>
       </section>
 
