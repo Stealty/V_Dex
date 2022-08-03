@@ -4,9 +4,12 @@ import { Paragraph, PokemonImage, BackArrow } from "@atoms";
 import { PokemonType, LikeHeart, AboutTab, Evolutions } from "@molecules";
 import { useGetPokemonSpeciesQuery } from "@api";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setPokemonSpeciesSlice } from "@store/modules/pokemonSlice";
-import { PokemonTabs, BaseStats, PokemonEvolution } from "@molecules";
+import {
+  PokemonTabs,
+  BaseStats,
+  PokemonEvolution,
+  DetailsBackground,
+} from "@molecules";
 
 export default function PokemonDetails({ details }) {
   const params = useParams();
@@ -35,6 +38,7 @@ export default function PokemonDetails({ details }) {
         styles[`PokemonDetails--${details?.types[0].type.name}`]
       }
     >
+      <DetailsBackground />
       <Link className={styles.PokemonDetails__backButton} to={"/pokedex"}>
         <BackArrow fill="white" navigate={"/pokedex"} />
       </Link>
