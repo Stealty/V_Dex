@@ -101,6 +101,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .PokemonImage__wrapper {
