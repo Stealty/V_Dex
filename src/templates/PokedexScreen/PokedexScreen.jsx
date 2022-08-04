@@ -1,18 +1,26 @@
 import { PokemonCard, Modal, Filter, MenuHamburguer } from "@molecules";
 import { Backdrop, SearchBar } from "@atoms";
 import styles from "./PokedexScreen.module.scss";
-import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const PokedexScreen = ({ data }) => {
-  const AllPokemon = useSelector((state) =>
-    state.pokemon.pokemonSpecies.slice()
-  );
   const [isLoading, setLoading] = useState(false);
   const [pokemon, SetPokemons] = useState(data.slice(0, 40));
   const [isActive, setActive] = useState(false);
   const [openSearch, setopenSearch] = useState(false);
   const searchText = useRef();
+  const { state } = useLocation();
+
+  useEffect(() => {
+    if (state) {
+      SetPokemons(
+        data.filter((pokemon) =>
+          pokemon.name.toString().toLowerCase().includes(state)
+        )
+      );
+    } else return;
+  }, [state]);
 
   const onClickHandler = () => {
     setActive(!isActive);
@@ -26,7 +34,7 @@ const PokedexScreen = ({ data }) => {
     setLoading(true);
     setInterval(() => {
       SetPokemons(
-        AllPokemon.filter((pokemon) =>
+        data.filter((pokemon) =>
           pokemon.name
             .toString()
             .toLowerCase()
