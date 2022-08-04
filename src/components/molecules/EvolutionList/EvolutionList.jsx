@@ -104,8 +104,8 @@ const EvolutionList = ({ pokemon }) => {
                 <PokemonEvolution pokemon={PokemonEv.Ev3} />
             </div>
         </>}
-
     </div>
-}
+  );
+};
 
 export default EvolutionList;
