@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  width: 100vw;
+  width: 100%;
   grid-template-areas:
     ". . . . . . . . . ."
     ". bk . . . . . . menu ."
@@ -37,6 +37,7 @@
     top: 0;
     right: 0;
     fill: rgba(0, 0, 0, 0.05);
+    overflow: hidden;
   }
 }
 

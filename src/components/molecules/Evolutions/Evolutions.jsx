@@ -1,5 +1,5 @@
-import { useGetPokemonEvolutionQuery, useGetPokemonDetailsQuery } from "@api";
-import { useEffect } from "react";
+import { useGetPokemonEvolutionQuery } from "@api";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setPokemonEvolutionSlice } from "@store/modules/pokemonSlice";
 import { Paragraph } from "@atoms";
@@ -15,7 +15,6 @@ const Evolutions = ({ species }) => {
   useEffect(() => {
     try {
       !isLoading && dispatch(setPokemonEvolutionSlice(data));
-
     } catch (error) {
       console.log(error);
     }

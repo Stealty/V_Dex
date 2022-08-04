@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./CategoriesCard.module.scss";
+import { Paragraph } from "@atoms";
 
 export default function CategoriesCard({ color, title, route }) {
   return (
@@ -10,12 +11,17 @@ export default function CategoriesCard({ color, title, route }) {
           : styles.CategoriesCard
       }
     >
+      <img
+        src="./images/SubtractCard.png"
+        alt=""
+        className={styles.CategoriesCard__image}
+      />
       <Link
         type="button"
         className={styles.CategoriesCard__link}
         to={`/${route}`}
       >
-        {title}
+        <Paragraph title={title} size="14" weight="light" />
       </Link>
     </div>
   );

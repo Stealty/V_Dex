@@ -21,12 +21,12 @@
     box-shadow: 0px 5px 26px -5px#2CDAB1;
   }
   &--red {
-    background: linear-gradient(18.53deg, #fc7f63 24.12%, #fdcc6e 108.9%);
-    box-shadow: 0px 5px 26px -5px #fc7f63;
+    background: #fa6555;
+    box-shadow: 0px 5px 26px -5px #f7786b;
   }
   &--blue {
-    background: #77c4fe;
-    box-shadow: 0px 5px 26px -5px #77c4fe;
+    background: #58abf6;
+    box-shadow: 0px 5px 26px -5px #58abf6;
   }
   &--yellow {
     background: #f6c747;
@@ -37,8 +37,8 @@
     box-shadow: 0px 5px 26px -5px #b1736c;
   }
   &--purple {
-    background: #a06eb4;
-    box-shadow: 0px 5px 26px -5px#a06eb4;
+    background: #7c538c;
+    box-shadow: 0px 5px 26px -5px#7C538C;
   }
 
   &__link {
@@ -52,12 +52,6 @@
     align-items: center;
     padding: 16px;
     text-decoration: none;
-
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: contain;
-    background-image: url("./images/SubtractCard.png");
-    background-blend-mode: soft-light;
     filter: brightness(0) invert(1) opacity(0.8);
 
     &:hover {
@@ -67,5 +61,10 @@
     &:active {
       filter: brightness(0) invert(1) opacity(0.9);
     }
+  }
+  &__image {
+    position: absolute;
+    background-blend-mode: soft-light;
+    filter: brightness(0) invert(1) opacity(0.8);
   }
 }

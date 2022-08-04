@@ -27,7 +27,7 @@ const PokemonEvolution = ({ pokemon }) => {
           </svg>
           <img
             className={styles.Evolution__PokemonImage}
-            src={data.sprites.other["official-artwork"].front_default}
+            src={data?.sprites.other["official-artwork"].front_default}
           />
         </Link>
       </div>

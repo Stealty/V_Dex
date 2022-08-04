@@ -1,18 +1,32 @@
 import { PokemonCard, Modal, Filter, MenuHamburguer } from "@molecules";
 import { Backdrop, SearchBar } from "@atoms";
 import styles from "./PokedexScreen.module.scss";
-import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
-const PokedexScreen = ({data}) => {
-  const AllPokemon = useSelector((state) =>
-    state.pokemon.pokemonSpecies.slice()
-  );
+const PokedexScreen = ({ data }) => {
   const [isLoading, setLoading] = useState(false);
-  const [pokemon, SetPokemons] = useState(data.slice(0, 40));
+  const [items, setItems] = useState(10);
+  const [pokemon, SetPokemons] = useState(data.slice(0, items));
   const [isActive, setActive] = useState(false);
   const [openSearch, setopenSearch] = useState(false);
   const searchText = useRef();
+  const { state } = useLocation();
+
+  function incrementItems() {
+    setItems(items + 10);
+    SetPokemons(data.slice(0, items + 10));
+  }
+
+  useEffect(() => {
+    if (state) {
+      SetPokemons(
+        data.filter((pokemon) =>
+          pokemon.name.toString().toLowerCase().includes(state)
+        )
+      );
+    } else return;
+  }, [state, pokemon]);
 
   const onClickHandler = () => {
     setActive(!isActive);
@@ -25,9 +39,16 @@ const PokedexScreen = ({data}) => {
   const onFilter = () => {
     setLoading(true);
     setInterval(() => {
-      SetPokemons(AllPokemon.filter((pokemon) => pokemon.name.toString().toLowerCase().includes(searchText.current.value.toString().toLowerCase())));
+      SetPokemons(
+        data.filter((pokemon) =>
+          pokemon.name
+            .toString()
+            .toLowerCase()
+            .includes(searchText.current.value.toString().toLowerCase())
+        )
+      );
       setLoading(false);
-      if(searchText.current.value.trim() == ""){
+      if (searchText.current.value.trim() == "") {
         SetPokemons(AllPokemon.slice(0, 40));
       }
     }, 5000);
@@ -43,9 +64,11 @@ const PokedexScreen = ({data}) => {
     >
       <MenuHamburguer></MenuHamburguer>
       <div className={styles.PokemonList}>
-        {!isLoading && pokemon.map((pokemon) => (
-          <PokemonCard key={pokemon.name} pokemon={pokemon} />
-        ))}
+        {!isLoading &&
+          pokemon.map((pokemon) => (
+            <PokemonCard key={pokemon.name} pokemon={pokemon} />
+          ))}
+        <button onClick={() => incrementItems()}>increment items</button>
       </div>
       <Filter onClick={onClickHandler} Active={isActive}></Filter>
       <Backdrop Active={isActive}>

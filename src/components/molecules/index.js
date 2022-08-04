@@ -17,3 +17,4 @@ export { default as Breeding } from "./Breeding/Breeding";
 export { default as Training } from "./Training/Training";
 export { default as BaseStats } from "./BaseStats/BaseStats";
 export { default as TypeDefenses } from "./TypeDefenses/TypeDefenses";
+export { default as MovesTab } from "./MovesTab/MovesTab";
