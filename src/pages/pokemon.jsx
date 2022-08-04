@@ -21,5 +21,5 @@ export default function Pokemon() {
     }
   }, [isLoading]);
 
-  return loading ? <LoadingAnimation /> : <PokemonDetails details={data} />;
+  return <PokemonDetails details={data} />;
 }

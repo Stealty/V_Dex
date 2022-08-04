@@ -6,11 +6,17 @@ import { useLocation } from "react-router-dom";
 
 const PokedexScreen = ({ data }) => {
   const [isLoading, setLoading] = useState(false);
-  const [pokemon, SetPokemons] = useState(data.slice(0, 40));
+  const [items, setItems] = useState(10);
+  const [pokemon, SetPokemons] = useState(data.slice(0, items));
   const [isActive, setActive] = useState(false);
   const [openSearch, setopenSearch] = useState(false);
   const searchText = useRef();
   const { state } = useLocation();
+
+  function incrementItems() {
+    setItems(items + 10);
+    SetPokemons(data.slice(0, items + 10));
+  }
 
   useEffect(() => {
     if (state) {
@@ -20,7 +26,7 @@ const PokedexScreen = ({ data }) => {
         )
       );
     } else return;
-  }, [state]);
+  }, [state, pokemon]);
 
   const onClickHandler = () => {
     setActive(!isActive);
@@ -62,6 +68,7 @@ const PokedexScreen = ({ data }) => {
           pokemon.map((pokemon) => (
             <PokemonCard key={pokemon.name} pokemon={pokemon} />
           ))}
+        <button onClick={() => incrementItems()}>increment items</button>
       </div>
       <Filter onClick={onClickHandler} Active={isActive}></Filter>
       <Backdrop Active={isActive}>
