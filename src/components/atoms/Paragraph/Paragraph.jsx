@@ -9,6 +9,7 @@ export default function Paragraph({
   height,
   opacity,
   icon,
+  name,
 }) {
   return (
     <p
