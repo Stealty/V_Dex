@@ -77,7 +77,7 @@ export default function PokemonDetails({ details }) {
                 )}
               </div>
               <Paragraph
-                title={data.genera[7].genus}
+                title={data?.genera[7].genus}
                 color="white"
                 size="14"
                 weight="light"
