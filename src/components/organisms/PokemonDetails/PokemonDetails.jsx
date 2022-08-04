@@ -9,6 +9,7 @@ import {
   BaseStats,
   PokemonEvolution,
   DetailsBackground,
+  MovesTab,
 } from "@molecules";
 
 export default function PokemonDetails({ details }) {
@@ -122,16 +123,18 @@ export default function PokemonDetails({ details }) {
             </li>
           )}
           {activeTab === 1 && (
-            <li>
-              <BaseStats data={details?.stats} />
-            </li>
+            <li>{!isLoading && <BaseStats data={details?.stats} />}</li>
           )}
           {activeTab === 2 && (
             <li>
               {!isLoading && <Evolutions species={data} details={details} />}
             </li>
           )}
-          {activeTab === 3 && <li>Moves</li>}
+          {activeTab === 3 && (
+            <li className={styles.PokemonDetails__item}>
+              {!isLoading && <MovesTab moves={details?.moves} />}
+            </li>
+          )}
         </ul>
       </section>
     </div>

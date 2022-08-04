@@ -10,6 +10,14 @@
     margin-top: -34px;
   }
 
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
   &__list {
     list-style-type: none;
   }
