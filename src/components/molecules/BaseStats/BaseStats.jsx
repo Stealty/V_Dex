@@ -9,7 +9,7 @@ export default function BaseStats({ data }) {
   const sum = statsSum(data);
   return (
     <div className={styles.BaseStats}>
-      {data.map((status) => {
+      {data?.map((status) => {
         return (
           <div className={styles.BaseStats__items} key={status.stat.name}>
             <Paragraph
