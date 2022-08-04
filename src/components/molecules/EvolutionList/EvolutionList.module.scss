@@ -4,7 +4,6 @@
     align-items: center;
     justify-content: space-around;
     overflow: visible;
-    height: 40vh;
 
     &__EvolutionStatus {
         display: flex;
@@ -12,6 +11,7 @@
         align-items: center;
         position: relative;
         width: 90%;
+        margin-bottom: 5%;
     }
 
     &__Trigger {
