@@ -14,7 +14,7 @@ export default function Pokemon() {
 
   useEffect(() => {
     try {
-      // !isLoading && dispatch(setPokemonDetailsSlice(data));
+      !isLoading && dispatch(setPokemonDetailsSlice(data));
       setTimeout(() => setLoading(false), 1000);
     } catch (error) {
       console.log(error);
