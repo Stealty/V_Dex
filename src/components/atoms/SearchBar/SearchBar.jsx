@@ -1,6 +1,13 @@
+import { useEffect } from "react";
 import styles from "./SearchBar.module.scss";
 
-export default function SearchBar({ search, onChange, className, placeholder, type }) {
+export default function SearchBar({
+  search,
+  onChange,
+  className,
+  placeholder,
+  type,
+}) {
   return (
     <input
       className={

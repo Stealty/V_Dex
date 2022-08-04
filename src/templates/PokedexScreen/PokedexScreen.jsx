@@ -3,6 +3,7 @@ import { Backdrop, SearchBar } from "@atoms";
 import styles from "./PokedexScreen.module.scss";
 import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const PokedexScreen = ({ data }) => {
   const AllPokemon = useSelector((state) =>
@@ -13,6 +14,17 @@ const PokedexScreen = ({ data }) => {
   const [isActive, setActive] = useState(false);
   const [openSearch, setopenSearch] = useState(false);
   const searchText = useRef();
+  const { state } = useLocation();
+
+  useEffect(() => {
+    if (state) {
+      SetPokemons(
+        AllPokemon.filter((pokemon) =>
+          pokemon.name.toString().toLowerCase().includes(state)
+        )
+      );
+    } else return;
+  }, [state]);
 
   const onClickHandler = () => {
     setActive(!isActive);
