@@ -70,14 +70,13 @@ const PokedexScreen = ({ data }) => {
         hasMore={true}
         loader={<LoadingAnimation />}
         scrollThreshold={0.8}
+        className={styles.PokedexScreen__infiniteScroll}
       >
         <div className={styles.PokemonList}>
           {!isLoading &&
             pokemon.map((pokemon) => (
               <PokemonCard key={pokemon.name} pokemon={pokemon} />
             ))}
-
-          {/* <button onClick={() => incrementItems()}>increment items</button> */}
         </div>
         <Filter onClick={onClickHandler} Active={isActive}></Filter>
         <Backdrop Active={isActive}>
