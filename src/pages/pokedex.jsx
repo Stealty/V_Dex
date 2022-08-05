@@ -17,7 +17,7 @@ function Pokedex() {
     }
   }, [isLoading]);
 
-  return <>{!isLoading && <PokedexScreen data={data.results} />}</>;
+  return !isLoading && <PokedexScreen data={data.results} />;
 }
 
 export default Pokedex;
