@@ -22,7 +22,6 @@ export default function PokemonDetails({ details }) {
   const detailsRef = useRef();
   const previousRef = useRef();
   const nextRef = useRef();
-  console.log(error);
 
   const arrowsNavigate = useMemo(() => {
     window.addEventListener("keydown", (e) => {
