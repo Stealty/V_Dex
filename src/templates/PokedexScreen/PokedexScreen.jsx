@@ -1,8 +1,9 @@
 import { PokemonCard, Modal, Filter, MenuHamburguer } from "@molecules";
-import { Backdrop, SearchBar } from "@atoms";
+import { Backdrop, SearchBar, LoadingAnimation } from "@atoms";
 import styles from "./PokedexScreen.module.scss";
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const PokedexScreen = ({ data }) => {
   const [isLoading, setLoading] = useState(false);
@@ -63,28 +64,37 @@ const PokedexScreen = ({ data }) => {
       }
     >
       <MenuHamburguer></MenuHamburguer>
-      <div className={styles.PokemonList}>
-        {!isLoading &&
-          pokemon.map((pokemon) => (
-            <PokemonCard key={pokemon.name} pokemon={pokemon} />
-          ))}
-        <button onClick={() => incrementItems()}>increment items</button>
-      </div>
-      <Filter onClick={onClickHandler} Active={isActive}></Filter>
-      <Backdrop Active={isActive}>
-        <Modal onClick={Search} Active={isActive} />
-        {openSearch == true && (
-          <div className={styles.PokedexScreen__Search}>
-            <SearchBar
-              onChange={onFilter}
-              search={searchText}
-              className={styles.PokedexScreen__SearchBar}
-              type="text"
-              placeholder="Search Pokemon"
-            />
-          </div>
-        )}
-      </Backdrop>
+      <InfiniteScroll
+        dataLength={pokemon?.length}
+        next={() => incrementItems()}
+        hasMore={true}
+        loader={<LoadingAnimation />}
+        scrollThreshold={0.8}
+      >
+        <div className={styles.PokemonList}>
+          {!isLoading &&
+            pokemon.map((pokemon) => (
+              <PokemonCard key={pokemon.name} pokemon={pokemon} />
+            ))}
+
+          {/* <button onClick={() => incrementItems()}>increment items</button> */}
+        </div>
+        <Filter onClick={onClickHandler} Active={isActive}></Filter>
+        <Backdrop Active={isActive}>
+          <Modal onClick={Search} Active={isActive} />
+          {openSearch == true && (
+            <div className={styles.PokedexScreen__Search}>
+              <SearchBar
+                onChange={onFilter}
+                search={searchText}
+                className={styles.PokedexScreen__SearchBar}
+                type="text"
+                placeholder="Search Pokemon"
+              />
+            </div>
+          )}
+        </Backdrop>
+      </InfiniteScroll>
     </div>
   );
 };
