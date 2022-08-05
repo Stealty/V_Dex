@@ -7,7 +7,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 const PokedexScreen = ({ data }) => {
   const [isLoading, setLoading] = useState(false);
-  const [items, setItems] = useState(10);
+  const [items, setItems] = useState(20);
   const [pokemon, SetPokemons] = useState(data.slice(0, items));
   const [isActive, setActive] = useState(false);
   const [openSearch, setopenSearch] = useState(false);
