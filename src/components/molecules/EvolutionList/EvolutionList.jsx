@@ -6,21 +6,21 @@ const EvolutionList = ({ pokemon }) => {
   const PokemonEv = {
     trigger1:
       (pokemon?.chain.evolves_to[0] != null) | undefined
-        ? pokemon?.chain.evolves_to[0].evolution_details[0].trigger.name ==
+        ? pokemon?.chain.evolves_to[0].evolution_details[0]?.trigger.name ==
           "use-item"
           ? "using"
-          : pokemon?.chain.evolves_to[0].evolution_details[0].trigger.name
+          : pokemon?.chain.evolves_to[0].evolution_details[0]?.trigger.name
         : null,
     status1:
       (pokemon?.chain.evolves_to[0] != null) | undefined
-        ? pokemon?.chain.evolves_to[0].evolution_details[0].trigger.name ==
+        ? pokemon?.chain.evolves_to[0].evolution_details[0]?.trigger.name ==
           "use-item"
-          ? pokemon?.chain.evolves_to[0].evolution_details[0].item.name
-          : pokemon?.chain.evolves_to[0].evolution_details[0].min_level != null
-          ? pokemon?.chain.evolves_to[0].evolution_details[0].min_level
-          : pokemon?.chain.evolves_to[0].evolution_details[0].min_happiness
+          ? pokemon?.chain.evolves_to[0].evolution_details[0]?.item.name
+          : pokemon?.chain.evolves_to[0].evolution_details[0]?.min_level != null
+          ? pokemon?.chain.evolves_to[0].evolution_details[0]?.min_level
+          : pokemon?.chain.evolves_to[0].evolution_details[0]?.min_happiness
           ? "Happiness " +
-            pokemon?.chain.evolves_to[0].evolution_details[0].min_happiness
+            pokemon?.chain.evolves_to[0].evolution_details[0]?.min_happiness
           : null
         : null,
     trigger2:
