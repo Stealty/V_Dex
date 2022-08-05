@@ -6,10 +6,10 @@ import statsSum from "@utils/statsSum";
 import { TypeDefenses } from "@molecules";
 
 export default function BaseStats({ data }) {
-  const sum = statsSum(data);
+  const sum = statsSum(data?.stats);
   return (
     <div className={styles.BaseStats}>
-      {data?.map((status) => {
+      {data?.stats.map((status) => {
         return (
           <div className={styles.BaseStats__items} key={status.stat.name}>
             <Paragraph
@@ -41,7 +41,7 @@ export default function BaseStats({ data }) {
           style={{ width: `${toPercent(sum / 6)}%` }}
         />
       </div>
-      <TypeDefenses defenses={""} />
+      <TypeDefenses data={data} />
     </div>
   );
 }

@@ -10,6 +10,7 @@ import {
   PokemonEvolution,
   DetailsBackground,
   MovesTab,
+  Scrollbar,
 } from "@molecules";
 
 export default function PokemonDetails({ details }) {
@@ -141,7 +142,7 @@ export default function PokemonDetails({ details }) {
             </li>
           )}
           {activeTab === 1 && (
-            <li>{!isLoading && <BaseStats data={details?.stats} />}</li>
+            <li>{!isLoading && <BaseStats data={details} />}</li>
           )}
           {activeTab === 2 && (
             <li>
