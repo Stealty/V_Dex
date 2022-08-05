@@ -14,16 +14,22 @@ export default function Breeding({ data, date }) {
       <Paragraph title="Breeding" size="16" />
       <div className={styles.Breeding__gender}>
         <Paragraph title="Gender" opacity="04" size="14" />
-        <Paragraph
-          size="14"
-          icon={gender > 0 && <MaleIcon />}
-          title={gender < 0 ? "Unknown" : malePercent + "%"}
-        />
-        <Paragraph
-          size="14"
-          icon={gender > 0 && <FemaleIcon />}
-          title={gender < 0 ? null : femalePercent + "%"}
-        />
+        {isNaN(gender) ? (
+          <Paragraph title="Genderless" size="14" />
+        ) : (
+          <>
+            <Paragraph
+              size="14"
+              icon={gender > 0 && <MaleIcon />}
+              title={gender < 0 ? "Unknown" : malePercent + "%"}
+            />
+            <Paragraph
+              size="14"
+              icon={gender > 0 && <FemaleIcon />}
+              title={gender < 0 ? null : femalePercent + "%"}
+            />
+          </>
+        )}
       </div>
       <div className={styles.Breeding__eggGroups}>
         <Paragraph title="Egg Groups" opacity="04" size="14" />

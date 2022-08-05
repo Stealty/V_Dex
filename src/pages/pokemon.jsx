@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useGetPokemonDetailsQuery } from "@api";
 import { setPokemonDetailsSlice } from "@store/modules/pokemonSlice";
-import { Scrollbar } from "@molecules";
 
 export default function Pokemon() {
   const name = useParams();
@@ -21,9 +20,5 @@ export default function Pokemon() {
     }
   }, [isLoading]);
 
-  return (
-    <Scrollbar>
-      <PokemonDetails details={data} />
-    </Scrollbar>
-  );
+  return <PokemonDetails details={data} />;
 }
