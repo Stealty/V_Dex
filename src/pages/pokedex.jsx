@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { useGetPokemonQuery } from "@api";
 
 function Pokedex() {
-  const { data, isLoading, error } = useGetPokemonQuery(151);
+  const { data, isLoading, error } = useGetPokemonQuery(898);
   const dispatch = useDispatch();
   useEffect(() => {
     if (!isLoading) {
@@ -17,11 +17,7 @@ function Pokedex() {
     }
   }, [isLoading]);
 
-  return (
-    <>
-      {!isLoading && <PokedexScreen data={data.results} />}
-    </>
-  );
+  return !isLoading && <PokedexScreen data={data.results} />;
 }
 
 export default Pokedex;

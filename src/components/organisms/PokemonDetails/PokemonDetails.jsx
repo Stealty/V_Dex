@@ -1,9 +1,9 @@
 import styles from "./PokemonDetails.module.scss";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { Paragraph, PokemonImage, BackArrow } from "@atoms";
 import { PokemonType, LikeHeart, AboutTab, Evolutions } from "@molecules";
 import { useGetPokemonSpeciesQuery } from "@api";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import {
   PokemonTabs,
   BaseStats,
@@ -19,6 +19,23 @@ export default function PokemonDetails({ details }) {
   const [previous, setPrevious] = useState(null);
   const [next, setNext] = useState(null);
   const id = details?.id.toString().padStart(3, "0");
+  const detailsRef = useRef();
+  const previousRef = useRef();
+  const nextRef = useRef();
+  const navigate = useNavigate();
+
+  const arrowsNavigate = useMemo(() => {
+    window.addEventListener("keydown", (e) => {
+      switch (e.key) {
+        case "ArrowLeft":
+          previousRef.current.click();
+          break;
+        case "ArrowRight":
+          nextRef.current.click();
+          break;
+      }
+    });
+  }, [isLoading]);
 
   const description = data?.flavor_text_entries[6].flavor_text
     .toLowerCase()
@@ -38,6 +55,7 @@ export default function PokemonDetails({ details }) {
         " " +
         styles[`PokemonDetails--${details?.types[0].type.name}`]
       }
+      ref={detailsRef}
     >
       <DetailsBackground />
       <Link className={styles.PokemonDetails__backButton} to={"/pokedex"}>
@@ -90,7 +108,7 @@ export default function PokemonDetails({ details }) {
         <div className={styles.PokemonImage__wrapper}>
           <div className={styles.PokemonImage__before}>
             {previous && (
-              <PokemonEvolution pokemon={previous > 0 ? previous : "898"} />
+              <PokemonEvolution pokemon={previous} reference={previousRef} />
             )}
           </div>
 
@@ -100,7 +118,7 @@ export default function PokemonDetails({ details }) {
           />
 
           <div className={styles.PokemonImage__next}>
-            {next && <PokemonEvolution pokemon={next > 898 ? "1" : next} />}
+            {next && <PokemonEvolution pokemon={next} reference={nextRef} />}
           </div>
         </div>
       </section>
