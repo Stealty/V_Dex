@@ -1,5 +1,5 @@
 import styles from "./PokemonDetails.module.scss";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Paragraph, PokemonImage, BackArrow } from "@atoms";
 import { PokemonType, LikeHeart, AboutTab, Evolutions } from "@molecules";
 import { useGetPokemonSpeciesQuery } from "@api";
@@ -10,7 +10,6 @@ import {
   PokemonEvolution,
   DetailsBackground,
   MovesTab,
-  Scrollbar,
 } from "@molecules";
 
 export default function PokemonDetails({ details }) {
@@ -23,7 +22,6 @@ export default function PokemonDetails({ details }) {
   const detailsRef = useRef();
   const previousRef = useRef();
   const nextRef = useRef();
-  const navigate = useNavigate();
 
   const arrowsNavigate = useMemo(() => {
     window.addEventListener("keydown", (e) => {
@@ -38,7 +36,7 @@ export default function PokemonDetails({ details }) {
     });
   }, [isLoading]);
 
-  const description = data?.flavor_text_entries[6].flavor_text
+  const description = data?.flavor_text_entries[6]?.flavor_text
     .toLowerCase()
     .replace(/[^\w ]/g, " ");
 
@@ -97,7 +95,7 @@ export default function PokemonDetails({ details }) {
                 )}
               </div>
               <Paragraph
-                title={data?.genera[7].genus}
+                title={data?.genera[7]?.genus}
                 color="white"
                 size="14"
                 weight="light"

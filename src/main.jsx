@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/global.css";
-// import "react-perfect-scrollbar/dist/css/styles.css";
 import { BrowserRouter } from "react-router-dom";
 import Router from "./Router";
 import { Provider } from "react-redux";
