@@ -1,0 +1,14 @@
+.NewsScreen {
+  padding: 28px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 50px;
+  gap: 19px;
+  height: 100%;
+
+  &__logo {
+    width: 100%;
+    border-radius: 14px;
+    margin-top: 43px;
+  }
+}

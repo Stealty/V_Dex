@@ -2,7 +2,8 @@ import styles from "./HomeScreen.module.scss";
 import { Paragraph, SearchBar } from "@atoms";
 import { CategoriesCard } from "@molecules";
 import { useEffect, useRef } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { NewsCard } from "../../components/molecules";
 
 export default function HomeScreen() {
   const searchRef = useRef();
@@ -40,6 +41,35 @@ export default function HomeScreen() {
         <CategoriesCard color="yellow" title="Items" route="items" />
         <CategoriesCard color="purple" title="Locations" route="locations" />
         <CategoriesCard color="brown" title="Type Charts" route="types" />
+      </section>
+      <section aria-label="Pokemon News" className={styles.PokemonNews}>
+        <div className={styles.PokemonNews__heading}>
+          <Paragraph title="Pokemon News" color="dark-gray" size="20" />
+          <Link to="/news">View All</Link>
+        </div>
+        <ul className={styles.PokemonNews__list}>
+          <li className={styles.PokemonNews__item}>
+            <NewsCard
+              title="Pokemon Rumble Rush Arrives Soon"
+              data="15 May 2019"
+              image="https://assets.pokemon.com/assets/cms2/img/video-games/video-games/pokemon_rumble_rush/pokemon-rumble-rush-169.jpg"
+            />
+          </li>
+          <li className={styles.PokemonNews__item}>
+            <NewsCard
+              title="Pokemon Rumble Rush Arrives Soon"
+              data="15 May 2019"
+              image="https://assets.pokemon.com/assets/cms2/img/video-games/video-games/pokemon_rumble_rush/pokemon-rumble-rush-169.jpg"
+            />
+          </li>
+          <li className={styles.PokemonNews__item}>
+            <NewsCard
+              title="Pokemon Rumble Rush Arrives Soon"
+              data="15 May 2019"
+              image="https://assets.pokemon.com/assets/cms2/img/video-games/video-games/pokemon_rumble_rush/pokemon-rumble-rush-169.jpg"
+            />
+          </li>
+        </ul>
       </section>
     </div>
   );
