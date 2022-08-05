@@ -1,0 +1,26 @@
+.NewsImages {
+  display: grid;
+  grid-template-areas:
+    "cell ball"
+    "cell switch";
+  gap: 1rem;
+  margin: 1rem 0;
+
+  &__smarthphone {
+    width: 100%;
+    grid-area: cell;
+    border-radius: 14px;
+  }
+
+  &__switch {
+    width: 100%;
+    grid-area: switch;
+    border-radius: 14px;
+  }
+
+  &__pokeball {
+    width: 100%;
+    grid-area: ball;
+    border-radius: 14px;
+  }
+}

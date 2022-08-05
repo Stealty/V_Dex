@@ -12,7 +12,7 @@ export default function CategoriesCard({ color, title, route }) {
       }
     >
       <img
-        src="./images/SubtractCard.png"
+        src="images/SubtractCard.png"
         alt=""
         className={styles.CategoriesCard__image}
       />
