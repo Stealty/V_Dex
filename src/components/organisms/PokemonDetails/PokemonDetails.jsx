@@ -46,7 +46,7 @@ export default function PokemonDetails({ details }) {
       setPrevious((details?.id - 1).toString());
       setNext((details?.id + 1).toString());
     }
-  }, [details]);
+  });
 
   return (
     <div
