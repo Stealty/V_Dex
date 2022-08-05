@@ -6,23 +6,23 @@ import { useEffect } from "react";
 
 const PokemonCard = (pokemon) => {
   const { data, isLoading, error } = useGetPokemonDetailsQuery(
-    pokemon.pokemon.name
+    pokemon?.pokemon.name
   );
 
   if (!isLoading) {
     return (
       <Link
-        to={data.name}
-        className={`${styles.Card} ${styles[`--${data.types[0].type.name}`]}`}
+        to={data?.name}
+        className={`${styles.Card} ${styles[`--${data?.types[0].type.name}`]}`}
       >
-        <h1 className={styles.Card__Name}>{data.name}</h1>
-        <p className={styles.Card__Type1}>{data.types[0].type.name}</p>
-        {data.types[1] != null && (
-          <p className={styles.Card__Type2}>{data.types[1].type.name}</p>
+        <h1 className={styles.Card__Name}>{data?.name}</h1>
+        <p className={styles.Card__Type1}>{data?.types[0].type.name}</p>
+        {data?.types[1] != null && (
+          <p className={styles.Card__Type2}>{data?.types[1].type.name}</p>
         )}
         <h2 className={styles.Card__Id}>
-          #{+data.id < 10 ? "00" : +data.id < 100 ? "0" : ""}
-          {data.id}
+          #{+data?.id < 10 ? "00" : +data?.id < 100 ? "0" : ""}
+          {data?.id}
         </h2>
         <svg
           className={styles.Card__Pokeball}
@@ -35,8 +35,8 @@ const PokemonCard = (pokemon) => {
         </svg>
         <img
           className={styles.Card__Image}
-          src={data.sprites.other["official-artwork"].front_default}
-          alt={data.name}
+          src={data?.sprites.other["official-artwork"].front_default}
+          alt={data?.name}
         />
       </Link>
     );
