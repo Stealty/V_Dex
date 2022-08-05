@@ -8,7 +8,7 @@ import styles from "./Evolutions.module.scss";
 
 const Evolutions = ({ species }) => {
   const { data, isLoading, error } = useGetPokemonEvolutionQuery(
-    species?.evolution_chain.url
+    species?.evolution_chain?.url
   );
 
   const dispatch = useDispatch();

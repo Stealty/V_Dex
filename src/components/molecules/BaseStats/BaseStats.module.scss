@@ -1,5 +1,6 @@
 .BaseStats {
   margin-top: 26px;
+  overflow: hidden;
 
   &__items {
     display: grid;
@@ -16,6 +17,11 @@
     }
     &--green {
       background-color: #4bc07a;
+      height: 3px;
+      border-radius: 110px;
+    }
+    &--purple {
+      background-color: #9b59b6;
       height: 3px;
       border-radius: 110px;
     }

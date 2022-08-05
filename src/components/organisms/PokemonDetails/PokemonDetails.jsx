@@ -1,5 +1,5 @@
 import styles from "./PokemonDetails.module.scss";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Paragraph, PokemonImage, BackArrow } from "@atoms";
 import { PokemonType, LikeHeart, AboutTab, Evolutions } from "@molecules";
 import { useGetPokemonSpeciesQuery } from "@api";
@@ -10,7 +10,6 @@ import {
   PokemonEvolution,
   DetailsBackground,
   MovesTab,
-  Scrollbar,
 } from "@molecules";
 
 export default function PokemonDetails({ details }) {
@@ -23,7 +22,6 @@ export default function PokemonDetails({ details }) {
   const detailsRef = useRef();
   const previousRef = useRef();
   const nextRef = useRef();
-  const navigate = useNavigate();
 
   const arrowsNavigate = useMemo(() => {
     window.addEventListener("keydown", (e) => {
@@ -38,7 +36,7 @@ export default function PokemonDetails({ details }) {
     });
   }, [isLoading]);
 
-  const description = data?.flavor_text_entries[6].flavor_text
+  const description = data?.flavor_text_entries[6]?.flavor_text
     .toLowerCase()
     .replace(/[^\w ]/g, " ");
 
@@ -52,9 +50,11 @@ export default function PokemonDetails({ details }) {
   return (
     <div
       className={
-        styles.PokemonDetails +
-        " " +
-        styles[`PokemonDetails--${details?.types[0].type.name}`]
+        error
+          ? styles.PokemonDetails__error + " " + styles.PokemonDetails
+          : styles.PokemonDetails +
+            " " +
+            styles[`PokemonDetails--${details?.types[0].type.name}`]
       }
       ref={detailsRef}
     >
@@ -66,15 +66,18 @@ export default function PokemonDetails({ details }) {
       <div className={styles.LikeHeart__wrapper}>
         <LikeHeart />
       </div>
-
-      <section
-        aria-label="Basics about Pokemon"
-        className={styles.PokemonDetails__basics}
-      >
-        {isLoading ? (
-          <Paragraph title="Loading..." color="white" weight="bold" size="36" />
-        ) : (
-          <>
+      {error ? (
+        <div className={styles.PokemonDetails__notFound}>
+          <Paragraph title="Not Found" size="36" color="white" />
+        </div>
+      ) : isLoading ? (
+        <Paragraph title="Loading..." color="white" weight="bold" size="36" />
+      ) : (
+        <>
+          <section
+            aria-label="Basics about Pokemon"
+            className={styles.PokemonDetails__basics}
+          >
             <div className={styles.PokemonDetails__title}>
               <Paragraph
                 title={details?.name}
@@ -97,65 +100,72 @@ export default function PokemonDetails({ details }) {
                 )}
               </div>
               <Paragraph
-                title={data?.genera[7].genus}
+                title={data?.genera[7]?.genus}
                 color="white"
                 size="14"
                 weight="light"
               />
             </div>
-          </>
-        )}
 
-        <div className={styles.PokemonImage__wrapper}>
-          <div className={styles.PokemonImage__before}>
-            {previous && (
-              <PokemonEvolution pokemon={previous} reference={previousRef} />
-            )}
-          </div>
+            <div className={styles.PokemonImage__wrapper}>
+              <div className={styles.PokemonImage__before}>
+                {previous && (
+                  <PokemonEvolution
+                    pokemon={previous}
+                    reference={previousRef}
+                  />
+                )}
+              </div>
 
-          <PokemonImage
-            image={details?.sprites.other["official-artwork"].front_default}
-            name={details?.name}
-          />
+              <PokemonImage
+                image={details?.sprites.other["official-artwork"].front_default}
+                name={details?.name}
+              />
 
-          <div className={styles.PokemonImage__next}>
-            {next && <PokemonEvolution pokemon={next} reference={nextRef} />}
-          </div>
-        </div>
-      </section>
+              <div className={styles.PokemonImage__next}>
+                {next && (
+                  <PokemonEvolution pokemon={next} reference={nextRef} />
+                )}
+              </div>
+            </div>
+          </section>
 
-      <section
-        aria-label="Details about Pokemon"
-        className={styles.PokemonDetails__details}
-      >
-        <PokemonTabs activeTab={activeTab} setActiveTab={setActiveTab} />
-        <ul className={styles.PokemonDetails__list}>
-          {activeTab === 0 && (
-            <li>
-              {!isLoading && (
-                <AboutTab
-                  data={details}
-                  description={description}
-                  species={data}
-                />
+          <section
+            aria-label="Details about Pokemon"
+            className={styles.PokemonDetails__details}
+          >
+            <PokemonTabs activeTab={activeTab} setActiveTab={setActiveTab} />
+            <ul className={styles.PokemonDetails__list}>
+              {activeTab === 0 && (
+                <li>
+                  {!isLoading && (
+                    <AboutTab
+                      data={details}
+                      description={description}
+                      species={data}
+                    />
+                  )}
+                </li>
               )}
-            </li>
-          )}
-          {activeTab === 1 && (
-            <li>{!isLoading && <BaseStats data={details} />}</li>
-          )}
-          {activeTab === 2 && (
-            <li>
-              {!isLoading && <Evolutions species={data} details={details} />}
-            </li>
-          )}
-          {activeTab === 3 && (
-            <li className={styles.PokemonDetails__item}>
-              {!isLoading && <MovesTab moves={details?.moves} />}
-            </li>
-          )}
-        </ul>
-      </section>
+              {activeTab === 1 && (
+                <li>{!isLoading && <BaseStats data={details} />}</li>
+              )}
+              {activeTab === 2 && (
+                <li>
+                  {!isLoading && (
+                    <Evolutions species={data} details={details} />
+                  )}
+                </li>
+              )}
+              {activeTab === 3 && (
+                <li className={styles.PokemonDetails__item}>
+                  {!isLoading && <MovesTab moves={details?.moves} />}
+                </li>
+              )}
+            </ul>
+          </section>
+        </>
+      )}
     </div>
   );
 }

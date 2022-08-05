@@ -20,9 +20,12 @@ export default function BaseStats({ data }) {
             <Paragraph title={status.base_stat} size="14" />
             <span
               className={
-                status.base_stat < 50
-                  ? styles["BaseStats__progressBar--red"]
-                  : styles["BaseStats__progressBar--green"]
+                (status.base_stat < 50 &&
+                  styles["BaseStats__progressBar--red"]) ||
+                (status.base_stat <= 100 &&
+                  styles["BaseStats__progressBar--green"]) ||
+                (status.base_stat > 100 &&
+                  styles["BaseStats__progressBar--purple"])
               }
               style={{ width: `${toPercent(status.base_stat)}%` }}
             />

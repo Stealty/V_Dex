@@ -1,8 +1,5 @@
 import { PokedexScreen } from "@templates";
-import {
-  setGenerationFilterSlice,
-  setPokemonSpeciesSlice,
-} from "@store/modules/pokemonSlice";
+import { setPokemonSpeciesSlice } from "@store/modules/pokemonSlice";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useGetPokemonQuery } from "@api";
@@ -12,7 +9,6 @@ function Pokedex() {
   const dispatch = useDispatch();
   useEffect(() => {
     if (!isLoading) {
-      dispatch(setGenerationFilterSlice(data.results));
       dispatch(setPokemonSpeciesSlice(data.results));
     }
   }, [isLoading]);

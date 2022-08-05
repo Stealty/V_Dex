@@ -6,7 +6,7 @@ import { BackArrow } from "@atoms";
 export default function NewsScreen() {
   return (
     <div className={styles.NewsScreen}>
-      <BackArrow navigate={"/home/"} />
+      <BackArrow />
       <img
         src="https://assets.pokemon.com/assets/cms2/img/video-games/video-games/pokemon_rumble_rush/pokemon-rumble-rush-169.jpg"
         alt="Picture from Pokemon Rumble Rush"

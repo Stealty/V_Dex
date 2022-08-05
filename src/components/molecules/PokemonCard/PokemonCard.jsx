@@ -2,12 +2,15 @@ import styles from "./PokemonCard.module.scss";
 import { useGetPokemonDetailsQuery } from "@api";
 import { LoadingAnimation } from "@atoms";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 
 const PokemonCard = (pokemon) => {
   const { data, isLoading, error } = useGetPokemonDetailsQuery(
-    pokemon?.pokemon.name
+    pokemon?.pokemon?.name
   );
+
+  if (error) {
+    return <div></div>;
+  }
 
   if (!isLoading) {
     return (
