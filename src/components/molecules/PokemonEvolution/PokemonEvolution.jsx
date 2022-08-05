@@ -3,13 +3,13 @@ import { PokemonImage, LoadingAnimation } from "@atoms";
 import { Link } from "react-router-dom";
 import styles from "./PokemonEvolution.module.scss";
 
-const PokemonEvolution = ({ pokemon }) => {
+const PokemonEvolution = ({ pokemon, reference }) => {
   const { data, isLoading, error } = useGetPokemonDetailsQuery(pokemon);
 
   if (!isLoading) {
     return (
       <div className={styles.Evolution}>
-        <Link to={"/pokedex/" + data?.name}>
+        <Link to={"/pokedex/" + data?.name} ref={reference}>
           <svg
             className={styles.Evolution__Pokeball}
             width="83"
