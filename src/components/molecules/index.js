@@ -18,6 +18,5 @@ export { default as Training } from "./Training/Training";
 export { default as BaseStats } from "./BaseStats/BaseStats";
 export { default as TypeDefenses } from "./TypeDefenses/TypeDefenses";
 export { default as MovesTab } from "./MovesTab/MovesTab";
-export { default as Scrollbar } from "./Scrollbar/Scrollbar";
 export { default as NewsImages } from "./NewsImages/NewsImages";
 export { default as NewsCard } from "./NewsCard/NewsCard";
