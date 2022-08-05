@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 const PokemonCard = (pokemon) => {
   const { data, isLoading, error } = useGetPokemonDetailsQuery(
-    pokemon?.pokemon.name
+    pokemon?.pokemon.pokedex_numbers[0]?.entry_number
   );
 
   if (!isLoading) {
