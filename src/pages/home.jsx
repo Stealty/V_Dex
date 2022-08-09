@@ -1,9 +1,7 @@
-function App() {
-  return (
-    <div className="App">
-      <div>V_Dex</div>
-    </div>
-  );
+import { HomeScreen } from "@/templates";
+
+function Home() {
+  return <HomeScreen />;
 }
 
-export default App;
+export default Home;

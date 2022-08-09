@@ -1,0 +1,40 @@
+.DetailsBackground {
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.DetailsBackground__ornament {
+  position: absolute;
+  width: 143.92px;
+  height: 143.92px;
+  left: -30px;
+  top: -44px;
+  background: linear-gradient(
+    84.85deg,
+    #48d0b0 36.15%,
+    rgba(72, 208, 176, 0) 124.91%
+  );
+  mix-blend-mode: screen;
+  opacity: 0.3;
+  border-radius: 24px;
+  transform: rotate(75deg);
+}
+
+.DetailsBackground__dotted {
+  position: absolute;
+  width: 57px;
+  height: 31px;
+  right: 71px;
+  top: 4px;
+  mix-blend-mode: normal;
+}
+
+.DetailsBackground__subtract {
+  position: absolute;
+  width: 182.39px;
+  height: 183px;
+  left: calc(50% - 91.19px);
+  top: 222px;
+  mix-blend-mode: screen;
+  opacity: 0.4;
+}

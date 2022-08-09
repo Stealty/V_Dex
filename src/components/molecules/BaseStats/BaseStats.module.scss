@@ -1,0 +1,35 @@
+.BaseStats {
+  margin-top: 26px;
+  overflow: hidden;
+
+  &__items {
+    display: grid;
+    grid-template-columns: 0.7fr 0.5fr 1fr;
+    align-items: center;
+    text-transform: capitalize;
+  }
+
+  &__progressBar {
+    &--red {
+      background-color: #fb6c6c;
+      height: 3px;
+      border-radius: 110px;
+    }
+    &--green {
+      background-color: #4bc07a;
+      height: 3px;
+      border-radius: 110px;
+    }
+    &--purple {
+      background-color: #9b59b6;
+      height: 3px;
+      border-radius: 110px;
+    }
+  }
+  &__total {
+    display: grid;
+    grid-template-columns: 0.7fr 0.5fr 1fr;
+    align-items: center;
+    text-transform: capitalize;
+  }
+}

@@ -1,0 +1,24 @@
+@keyframes pokemonImageFadeIn {
+  from {
+    filter: blur(10px);
+  }
+  to {
+    filter: blur(0);
+  }
+}
+
+.Evolution {
+  align-items: center;
+
+  &__Pokeball {
+    fill: rgba(0, 0, 0, 0.05);
+    position: absolute;
+    z-index: 1;
+  }
+
+  &__PokemonImage {
+    height: 76px;
+    z-index: 2;
+    animation: pokemonImageFadeIn 1s;
+  }
+}

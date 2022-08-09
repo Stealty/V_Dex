@@ -1,0 +1,15 @@
+@keyframes pokemonImageFadeIn {
+  from {
+    filter: blur(10px);
+  }
+  to {
+    filter: blur(0);
+  }
+}
+
+.PokemonImage {
+  width: 224px;
+  height: 213px;
+  z-index: 2;
+  animation: pokemonImageFadeIn 1s;
+}

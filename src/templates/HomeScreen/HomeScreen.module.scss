@@ -1,0 +1,36 @@
+.HomeScreen {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  background-image: url("/images/Subtract.png");
+  background-repeat: no-repeat;
+  background-size: 190px;
+  background-position: right top;
+  margin: 0 auto;
+  max-width: 700px;
+  height: 100vh;
+  padding: 117px 26px 0px 26px;
+
+  &__categories {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}
+.PokemonNews__list {
+  width: 100%;
+  list-style-type: none;
+  margin-top: 32px;
+}
+
+.PokemonNews__item {
+  margin-top: 16px;
+}
+.PokemonNews__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

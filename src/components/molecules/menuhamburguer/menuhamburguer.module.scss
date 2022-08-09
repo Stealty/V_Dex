@@ -1,0 +1,64 @@
+.Navigation {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  width: 100%;
+  grid-template-areas:
+    ". . . . . . . . . ."
+    ". bk . . . . . . menu ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    " title title title title . . . . . .";
+
+  &__BackArrow {
+    grid-area: bk;
+    position: absolute;
+    top: 60px;
+    left: 28px;
+  }
+
+  &__Menu {
+    grid-area: menu;
+    position: absolute;
+    right: 32px;
+    top: 58px;
+    list-style: none;
+  }
+
+  &__Title {
+    grid-area: title;
+    margin: 0;
+    font-size: 30px;
+  }
+
+  &__Pokeball {
+    grid-area: menu;
+    position: absolute;
+    top: 0;
+    right: 0;
+    fill: rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+}
+
+.Menu {
+  &__Ponto {
+    width: 5px;
+    height: 5px;
+    background-color: black;
+    margin-bottom: 3px;
+    margin-right: 2px;
+    border-radius: 1px;
+  }
+
+  &__Bar {
+    width: 14px;
+    height: 5px;
+    background: black;
+    border-radius: 1px;
+  }
+
+  &__Lista {
+    display: flex;
+  }
+}

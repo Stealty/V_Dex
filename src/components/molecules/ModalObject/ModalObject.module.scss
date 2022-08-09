@@ -1,0 +1,21 @@
+.ModalObject {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-color: white;
+    border-radius: 33px;
+    height: 36px;
+    width: 188px;
+    fill: #6C79DB;
+    &__Span{
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    &:active{
+        background-color:#414b96;
+        fill: white;
+        color: white;
+    }
+}

@@ -1,0 +1,64 @@
+.Paragraph {
+  line-height: 42px;
+  text-align: Left;
+  vertical-align: Center;
+  font-weight: 900;
+  margin: 0;
+  font-style: book;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+
+  &--opacity04 {
+    opacity: 0.4;
+  }
+
+  &--bold {
+    font-weight: 900;
+  }
+
+  &--light {
+    font-weight: 300;
+  }
+
+  &--dark-gray {
+    color: #303943;
+  }
+
+  &--white {
+    color: rgba(255, 255, 255, 1);
+  }
+
+  &--size14 {
+    font-size: 14px;
+  }
+
+  &--size16 {
+    font-size: 16px;
+  }
+
+  &--size18 {
+    font-size: 18px;
+  }
+
+  &--size30 {
+    font-size: 30px;
+  }
+
+  &--size36 {
+    font-size: 36px;
+  }
+
+  &--height14 {
+    line-height: 14px;
+  }
+
+  &--height28 {
+    line-height: 28px;
+  }
+
+  &--height24 {
+    line-height: 24px;
+  }
+}
