@@ -20,7 +20,7 @@ const PokemonCard = (pokemon) => {
       >
         <h1 className={styles.Card__Name}>{data?.name}</h1>
         <p className={styles.Card__Type1}>{data?.types[0].type.name}</p>
-        {data?.types[1] != null && (
+        {data?.types[1] && (
           <p className={styles.Card__Type2}>{data?.types[1].type.name}</p>
         )}
         <h2 className={styles.Card__Id}>

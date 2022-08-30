@@ -14,7 +14,7 @@ export default function NewsCard({ title, data, image }) {
           weight="light"
         />
       </div>
-      <img src={image} alt="" className={styles.NewsCard__image} />
+      <img src={image} alt={title} className={styles.NewsCard__image} />
     </div>
   );
 }
