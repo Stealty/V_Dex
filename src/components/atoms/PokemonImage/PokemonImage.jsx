@@ -23,7 +23,7 @@ export default function PokemonImage({
     return (
       <img
         src={image}
-        alt={name}
+        alt={"Pokemon" + name}
         className={
           isEvolution
             ? styles.PokemonImage
