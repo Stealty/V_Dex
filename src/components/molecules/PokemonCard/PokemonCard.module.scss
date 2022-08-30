@@ -17,7 +17,8 @@
 
   &__Name {
     grid-area: name;
-    color: white;
+    color: black;
+    opacity: 0.5;
     font-size: 2rem;
     margin: 0;
     margin-left: 30px;
@@ -27,21 +28,23 @@
     grid-area: id;
     text-align: end;
     font-size: 2rem;
-    opacity: 0.12;
+    opacity: 0.5;
     top: 30px;
     right: 30px;
     position: absolute;
     mix-blend-mode: multiply;
+    color: black;
   }
 
   @mixin Type {
-    background-color: rgba(255, 255, 255, 0.4);
-    color: white;
+    background-color: rgba(255, 255, 255, 0.334);
     border-radius: 38px;
     align-self: center;
     padding: 5%;
     text-align: center;
     margin-left: 30px;
+    // opacity: 0.5;
+    color: rgba(0, 0, 0, 0.718);
   }
 
   &__Type1 {
